@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agrimart.blend | 3D Artist & Creator</title>
+
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0c0c0f;
+      color: #f5f5f5;
+      padding-top: 80px;
+      overflow-x: hidden;
+    }
+    a { color: #70c0f5; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Loader */
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #0c0c0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity .5s ease, visibility .5s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #333;
+      border-top-color: #70c0f5;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(12,12,15,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      background: linear-gradient(90deg,#70c0f5,#928dab);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav li { list-style: none; }
+
+    /* Sections & Headings */
+    section {
+      padding: 4rem 2rem;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all .8s ease-out;
+    }
+    h1, h2 {
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: .5rem;
+      background: linear-gradient(90deg,#70c0f5,#928dab,#70c0f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: #70c0f5;
+      display: block;
+      margin: 8px auto 0;
+    }
+
+    /* Grid Tiles */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .tile {
+      background: #18181d;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      text-align: center;
+      padding: .5rem;
+      transition: transform .3s;
+    }
+    .tile:hover {
+      transform: translateY(-6px);
+    }
+    .tile img,
+    .tile iframe {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      transition: transform .5s;
+    }
+    .tile:hover img,
+    .tile:hover iframe {
+      transform: scale(1.05);
+    }
+    .tile figcaption {
+      margin-top: .8rem;
+      color: #ccc;
+      font-size: .95rem;
+      line-height: 1.4;
+    }
+
+    /* Handpainted Artworks */
+    #handpainted {
+      background: #111;
+      padding: 6rem 2rem;
+    }
+    .handpainted-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .handpainted-img {
+      flex: 1 1 45%;
+      min-width: 280px;
+    }
+    .handpainted-img img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .handpainted-text {
+      flex: 1 1 50%;
+      min-width: 280px;
+    }
+    .handpainted-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #70c0f5;
+    }
+    .handpainted-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* Reviews */
+    .reviews-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .review-item {
+      background: #1e1e23;
+      border-left: 4px solid #70c0f5;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+    }
+    .review-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .review-item .attribution {
+      margin-top: .5rem;
+      font-size: .9rem;
+      color: #888;
+      text-align: right;
+    }
+
+    /* Contact Form */
+    #contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #contact input,
+    #contact textarea {
+      width: 100%;
+      padding: .8rem;
+      background: #222;
+      color: #f5f5f5;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    #contact button {
+      padding: .8rem;
+      background: #70c0f5;
+      color: #0c0c0f;
+      border: none;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .3s;
+    }
+    #contact button:hover {
+      background: #4aa8d8;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      font-size: .9rem;
+      color: #ccc;
+    }
+    footer .social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader"><div class="spinner"></div></div>
+
+  <!-- Navigation -->
+  <nav>
+    <a class="logo" href="#home">Agrimart.blend</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#assets">Assets</a></li>
+      <li><a href="#handpainted">Handpainted</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home">
+    <h1>Agrimart.blend</h1>
+    <p style="text-align:center; font-size:1.2rem; color:#ddd;">
+      I makes anime world in 3d. wanted to be an animator, sculpt light & texture into 3D stories—every shader, every frame alive.
+    </p>
+  </section>
+
+  <!-- Selected Works -->
+  <section id="portfolio">
+    <h2>Selected Works</h2>
+    <div class="grid">
+      <figure class="tile">
+        <img src="https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd" alt="Vibrant 3D landscape">
+        <figcaption>Vibrant hdri's pack of 3 handpainted by me.</figcaption>
+      </figure>
+      <figure class="tile">
+        <iframe src="https://www.youtube.com/embed/L6jrqEbGRmg" frameborder="0" allowfullscreen></iframe>
+        <figcaption>animation made by using one of my hdri.</figcaption>
+      </figure>
+      <figure class="tile">
+        <iframe src="https://www.youtube.com/embed/ixYLEZ1FNjM" frameborder="0" allowfullscreen></iframe>
+        <figcaption>Anime meteor sky—handpainted HDRI in the 3d world.</figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="https://public-files.gumroad.com/l1qqb7oy602v3elt36k5w3sfkpx3" alt="Fluid cloth simulation">
+        <figcaption>one of my pic using my 2nd hdri ,anime sky hdri w.</figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="https://public-files.gumroad.com/rpvyhokkil24kmr1rwjgo7fy1df2" alt="Glowing emission test">
+        <figcaption>Glowing emission test—bloom & light synergy great vibrant colors.</figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj" alt="Brick-inspired still life">
+        <figcaption>anime train crossing scence with my hdri, still life—texture meets geometry.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+<!-- Updated Selected Works Section -->
+<section id="portfolio">
+  <h2>Selected Works</h2>
+  <h3 style="text-align:center; margin-top:1rem; color:#70c0f5;">Videos</h3>
+  <div class="grid">
+    <figure class="tile">
+      <iframe src="https://www.youtube.com/embed/L6jrqEbGRmg" frameborder="0" allowfullscreen></iframe>
+      <figcaption>Animation made by using one of my HDRIs.</figcaption>
+    </figure>
+    <figure class="tile">
+      <iframe src="https://www.youtube.com/embed/ixYLEZ1FNjM" frameborder="0" allowfullscreen></iframe>
+      <figcaption>Anime meteor sky—handpainted HDRI in the 3D world.</figcaption>
+    </figure>
+    <figure class="tile">
+      <iframe src="https://www.youtube.com/embed/fJyu7OxRP5g" frameborder="0" allowfullscreen></iframe>
+      <figcaption>Rendered high quality background with parallax effect animations.</figcaption>
+    </figure>
+  </div>
+  <h3 style="text-align:center; margin-top:3rem; color:#70c0f5;">Images</h3>
+  <div class="grid">
+    <figure class="tile">
+      <img src="https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd" alt="Vibrant 3D landscape">
+      <figcaption>Vibrant HDRIs pack of 3 handpainted by me.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://public-files.gumroad.com/l1qqb7oy602v3elt36k5w3sfkpx3" alt="Fluid cloth simulation">
+      <figcaption>One of my pics using my 2nd HDRI, anime sky HDRI W.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://public-files.gumroad.com/rpvyhokkil24kmr1rwjgo7fy1df2" alt="Glowing emission test">
+      <figcaption>Glowing emission test—bloom & light synergy, great vibrant colors.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj" alt="Brick-inspired still life">
+      <figcaption>Anime train crossing scene with my HDRI, still life—texture meets geometry.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Anime Style in Blender 3D Section -->
+<section id="anime3d">
+  <h2>Anime Style in Blender 3D</h2>
+  <div class="grid">
+    <figure class="tile">
+      <img src="https://cdna.artstation.com/p/assets/images/images/088/224/146/smaller_square/agrimart-photo-2025-05-18-19-34-39.jpg?1747750289" alt="Anime Render 1">
+      <figcaption>Anime-style hdri and lighting and composition in Blender 3D.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://c10.patreonusercontent.com/4/patreon-media/p/post/127433678/116bc1d4326243cc970691589d32ec02/eyJ3IjoxMDgwfQ%3D%3D/1.png?token-hash=JZrokkrG6032a0cOypfHrqZOWLLYdKYHfXrcMwHOxDE%3D&token-time=1754438400" alt="Anime Render 2">
+      <figcaption>shader experimentation in 3D anime style.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://c10.patreonusercontent.com/4/patreon-media/p/post/127433678/82bb8a0750e9482caad7e4a535e28f78/eyJ3IjoxMDgwfQ%3D%3D/1.png?token-hash=egCAPxWFqlXMa8KhC3KK8Gvn4nKsQ3vON8JZc3Li3p0%3D&token-time=1754438400" alt="Anime Render 3">
+      <figcaption>Anime style render in blender 3d.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://i.pinimg.com/736x/6c/1e/5b/6c1e5b01d64b04f5948dd849613fbbbf.jpg" alt="Anime Render 4">
+      <figcaption>Dynamic anime scene blending traditional and digital stylization.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://i.pinimg.com/736x/f2/07/29/f207291723f3088600afc08b5762e271.jpg" alt="Anime Render 5">
+      <figcaption>Anime style animation compositing and 3D elements.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://public-files.gumroad.com/p5528t9gyug7xr2uwmhb7otlv5di" alt="Anime Render 6">
+      <figcaption>spirited away anime style 3d render.</figcaption>
+    </figure>
+    <figure class="tile">
+      <img src="https://public-files.gumroad.com/ogz7z3yv44usot34y1aef21tc7kq" alt="Anime Render 7">
+      <figcaption>Stylized anime look wood shader entirely in Blender with soft shadow renders.</figcaption>
+    </figure>
+  </div>
+</section>
+
+  <!-- 3D Assets Library -->
+  <section id="assets">
+    <h2>My 3D Assets Library</h2>
+    <div class="grid">
+      <figure class="tile">
+        <a href="https://agrimart.gumroad.com/l/animefountain" target="_blank">
+          <img src="https://public-files.gumroad.com/d34rqd01nd7lrbb2mvuk23p33s83" alt="Anime Fountain Shader">
+        </a>
+        <figcaption>“Anime Fountain Shader” — Smooth waves & particle flows—instant stylized water!</figcaption>
+      </figure>
+      <figure class="tile">
+        <a href="https://agrimart.gumroad.com/l/waterfall" target="_blank">
+          <img src="https://public-files.gumroad.com/t1elcqn3ws9ca5iqv2n7cdqhek3b" alt="Waterfall Shader">
+        </a>
+        <figcaption>“Waterfall Shader” — Painterly cascades with custom colors & speed controls.</figcaption>
+      </figure>
+      <figure class="tile">
+        <a href="https://agrimart.gumroad.com/l/xdglk" target="_blank">
+          <img src="https://public-files.gumroad.com/weehzc6knl1rs5z1fgr6v9gxh1kd" alt="River Crossing Train Scene">
+        </a>
+        <figcaption>“River Crossing Train Scene” — Detailed environment pack—save hours on set build-out.</figcaption>
+      </figure>
+      <figure class="tile">
+        <a href="https://agrimart.gumroad.com/l/pwoyw" target="_blank">
+          <img src="https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj" alt="Anime HDRI Handpainted">
+        </a>
+        <figcaption>“Anime HDRI Handpainted” — Your-Name meteor sky in 8K HDRI, handpainted for cinematic lighting.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Handpainted Artworks -->
+  <section id="handpainted">
+    <div class="handpainted-wrap">
+      <div class="handpainted-img">
+        <img src="https://cdnb.artstation.com/p/marketplace/presentation_assets/004/423/657/large/file.jpg?1743607930" alt="Anime Sky HDRI by Agrim">
+      </div>
+      <div class="handpainted-text">
+        <h3>Anime Sky HDRI</h3>
+        <p>
+          Handpainted by me and ready for use in any 3D software.<br><br>
+          This HDRI is inspired by the breathtaking skies of the Japanese anime movie <em>Your Name</em>—designed to infuse cinematic emotion into your renders.
+        </p>
+      </div>
+    </div>
+    <div class="handpainted-wrap">
+      <div class="handpainted-text">
+        <h3>Anime Sky HDRI</h3>
+        <p>
+          Anime sky HDRI fully handpainted by me with Clip Studio Paint.  
+          Ready for any 3D software—ultra-high-quality cinematic lighting.
+        </p>
+      </div>
+      <div class="handpainted-img">
+        <img src="https://public-files.gumroad.com/kg56a8wjb1bofh9azxj9oy1dvke4" alt="Anime Sky HDRI by Agrim"/>
+      </div>
+    </div>
+  </section>
+
+<!-- Product Design Section -->
+<section id="productdesign" class="py-20 px-4 bg-gray-900/30">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-4">Product Design</h2>
+    <div class="w-20 h-1 bg-blue-400 mx-auto mb-12"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Product 1 -->
+      <div class="bg-gray-800/50 border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group rounded-lg">
+        <div class="relative overflow-hidden">
+          <img
+            src="https://i.pinimg.com/736x/9c/52/c8/9c52c82bf8bcc32eefb9f12616f57561.jpg"
+            alt="CGI Product Animation"
+            class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 text-white">CGI Product Animation</h3>
+          <p class="text-gray-400 mb-4">High-end CGI product rendering for premium branding.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Product Design</span>
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">CGI</span>
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Advertising</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 - Highlighted Center -->
+      <div class="bg-gray-800/60 border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group rounded-lg lg:col-span-2">
+        <div class="relative overflow-hidden">
+          <img
+            src="https://i.pinimg.com/736x/6e/76/2c/6e762cde42014861919e05e990f57f92.jpg"
+            alt="Cinematic Lighting Showreel"
+            class="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold mb-2 text-white">Cinematic Lighting Showreel</h3>
+          <p class="text-gray-300 text-base mb-4">Showcase your products with photoreal exploded version with precision & cinematic lighting designed to captivate audiences.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Hero Frame</span>
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Product Ad</span>
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Lighting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="bg-gray-800/50 border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group rounded-lg">
+        <div class="relative overflow-hidden">
+          <img
+            src="https://i.pinimg.com/736x/12/b5/e1/12b5e1e8b031ae710ef281f1d96ed016.jpg"
+            alt="Marketing-Ready Renders"
+            class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2 text-white">Marketing-Ready Renders</h3>
+          <p class="text-gray-400 mb-4">Designed to elevate your product marketing through visual storytelling and atmosphere.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Product Design</span>
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Rendering</span>
+            <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">Storytelling</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
+<!-- About Me Section -->
+<section id="aboutme" style="background: url('https://public-files.gumroad.com/pe747rdnqtoyy2nmwqmlek2nh7td') center/cover no-repeat; background-attachment: fixed; padding: 6rem 2rem; position: relative;">
+  <div style="background: rgba(0,0,0,0.7); padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); max-width: 960px; margin: 0 auto;">
+    <h2 style="color: #fcb5ff;">About Me</h2>
+    <p style="text-align:center; font-size:1.15rem; line-height:1.7; color:#ddd;">
+      Hi I am <strong style="color:#70c0f5;">Agrim Kaushal</strong> urf <strong style="color:#70c0f5;">Agrimart.blend</strong>, an artist who makes anime in Blender 3D as well as in Clip Studio.<br><br>
+      <strong>My skills:</strong> 3D Visualization, Digital Art, Animation, Blender3D, 3D Animation, Art and Craft, Product Design, HDRI Design, Parallax Effect, and much more I'm learning.
+    </p>
+    <div class="grid" style="margin-top: 3rem;">
+      <figure class="tile">
+        <img src="https://c10.patreonusercontent.com/4/patreon-media/p/post/127433678/116bc1d4326243cc970691589d32ec02/eyJ3IjoxMDgwfQ%3D%3D/1.png?token-hash=JZrokkrG6032a0cOypfHrqZOWLLYdKYHfXrcMwHOxDE%3D&token-time=1754438400" alt="Work 1">
+        <figcaption>A studio test render using custom shader with anime-style HDRI lighting and particles.</figcaption>
+      </figure>
+      <figure class="tile">
+        <img src="https://c10.patreonusercontent.com/4/patreon-media/p/post/127433678/82bb8a0750e9482caad7e4a535e28f78/eyJ3IjoxMDgwfQ%3D%3D/1.png?token-hash=egCAPxWFqlXMa8KhC3KK8Gvn4nKsQ3vON8JZc3Li3p0%3D&token-time=1754438400" alt="Work 2">
+        <figcaption>Anime render scene exploring atmospheric glow and 2D-style motion blur in Blender.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <h2>What People Say</h2>
+    <div class="reviews-list">
+      <div class="review-item">
+        <p>Now this is a quality shader</p>
+        <div class="attribution">— Anonymous</div>
+      </div>
+      <div class="review-item">
+        <p>such a great shder and thanks a lot for providing it for free for all. ❤️</p>
+        <div class="attribution">— yuhara, Creator</div>
+      </div>
+      <div class="review-item">
+        <p>Awesome Work!!!</p>
+        <div class="attribution">— Fang3D, 2025-03-10</div>
+      </div>
+      <div class="review-item">
+        <p>the hdri's really fits over my project thankyou for making my work easier and better. ❤️</p>
+        <div class="attribution">— russ.barratt, client</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Discover more across my digital gallery & storefront:</p>
+    <div class="social">
+      <a href="https://agrimart.gumroad.com/l/nowryi" target="_blank">Gumroad</a>
+      <a href="https://www.youtube.com/channel/UCXXXXXXXXX" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/agrimart.blend/" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('hidden');
+
+      gsap.from('nav', { y: -80, opacity: 0, duration: 1, ease: 'power2.out' });
+      gsap.from('#home h1', { y: 20, opacity: 0, duration: .8, delay: .5 });
+
+      gsap.utils.toArray('section').forEach(sec => {
+        ScrollTrigger.create({
+          trigger: sec,
+          start: 'top 80%',
+          onEnter: () => sec.classList.add('visible')
+        });
+      });
+    });
+  </script>
+</body>
+</html>
