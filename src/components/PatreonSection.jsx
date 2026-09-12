@@ -1,4 +1,5 @@
 import ShuffleText from "./ShuffleText";
+import { asset } from "../lib/asset";
 
 export default function PatreonSection() {
   return (
@@ -68,7 +69,7 @@ export default function PatreonSection() {
         {/* Right visual */}
         <div className="patreon-visual reveal reveal-d1">
           <div className="patreon-card">
-            <img src="/sky.jpg" alt="Portfolio preview" />
+            <img src={asset("sky.jpg")} alt="Portfolio preview" />
             <div className="patreon-card-overlay">
               <span>AGRIMART.BLEND</span>
               <span>PATRON EXCLUSIVE</span>

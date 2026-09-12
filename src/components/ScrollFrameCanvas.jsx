@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { asset } from "../lib/asset";
 
 const TOTAL = 112;
 const FRAME_PATHS = Array.from({ length: TOTAL }, (_, i) =>
-  `/frames/frame${String(i * 2).padStart(4, "0")}.jpg`
+  asset(`frames/frame${String(i * 2).padStart(4, "0")}.jpg`)
 );
 
 const TEXT_STAGES = [

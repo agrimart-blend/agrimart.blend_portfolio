@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import DomeGallery from "./DomeGallery";
 import ShuffleText from "./ShuffleText";
+import { asset } from "../lib/asset";
 
 /*
  * Put your shader images in  public/shaders/
@@ -9,12 +10,12 @@ import ShuffleText from "./ShuffleText";
  */
 
 const FALLBACK_IMAGES = [
-  { src: "/sky.jpg",        alt: "Anime Sky HDRI" },
-  { src: "/metro.jpg",      alt: "Anime Train Scene" },
-  { src: "/room.jpg",       alt: "Anime Room Interior" },
-  { src: "/ue5.jpg",        alt: "UE5 Landscape" },
-  { src: "/ps-windmill.jpg",alt: "Digital Art – Windmill" },
-  { src: "/ps-valorant.jpg",alt: "Digital Art – Valorant" },
+  { src: asset("sky.jpg"),        alt: "Anime Sky HDRI" },
+  { src: asset("metro.jpg"),      alt: "Anime Train Scene" },
+  { src: asset("room.jpg"),       alt: "Anime Room Interior" },
+  { src: asset("ue5.jpg"),        alt: "UE5 Landscape" },
+  { src: asset("ps-windmill.jpg"),alt: "Digital Art – Windmill" },
+  { src: asset("ps-valorant.jpg"),alt: "Digital Art – Valorant" },
   { src: "https://public-files.gumroad.com/d34rqd01nd7lrbb2mvuk23p33s83", alt: "Fountain Shader" },
   { src: "https://public-files.gumroad.com/t1elcqn3ws9ca5iqv2n7cdqhek3b", alt: "Waterfall Shader" },
   { src: "https://public-files.gumroad.com/ogz7z3yv44usot34y1aef21tc7kq", alt: "Wood Shader" },
@@ -36,7 +37,7 @@ export default function ShadersSection() {
       }
     };
     for (let i = 1; i <= 30; i++) {
-      const src = `/shaders/shader${i}.jpg`;
+      const src = asset(`shaders/shader${i}.jpg`);
       const img = new Image();
       img.onload  = () => { found.push({ src, alt: `Shader ${i}` }); done(); };
       img.onerror = () => done();

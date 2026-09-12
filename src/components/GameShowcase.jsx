@@ -1,4 +1,6 @@
-const SHOTS = ["/wallfall/shot-1.webp", "/wallfall/shot-3.webp", "/wallfall/shot-4.webp"];
+import { asset } from "../lib/asset";
+
+const SHOTS = ["wallfall/shot-1.webp", "wallfall/shot-3.webp", "wallfall/shot-4.webp"].map(asset);
 
 export default function GameShowcase() {
   return (
@@ -9,7 +11,7 @@ export default function GameShowcase() {
 
         <div className="game-card reveal">
           <div className="game-card-media">
-            <img src="/wallfall/hero.webp" alt="Wallfall Barricade key art" loading="lazy" />
+            <img src={asset("wallfall/hero.webp")} alt="Wallfall Barricade key art" loading="lazy" />
             <div className="game-card-media-fade" />
           </div>
 

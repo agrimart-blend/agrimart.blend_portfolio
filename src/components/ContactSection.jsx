@@ -1,3 +1,5 @@
+import { asset } from "../lib/asset";
+
 const LINKS = [
   { icon:"▶", platform:"YouTube",    handle:"@ytagrimart",         href:"https://www.youtube.com/@ytagrimart"          },
   { icon:"◈", platform:"Instagram",  handle:"@agrimart.blend",     href:"https://www.instagram.com/agrimart.blend/"    },
@@ -31,8 +33,8 @@ export default function ContactSection() {
         </div>
         <div className="contact-right reveal reveal-d1">
           <div className="contact-art">
-            <img src="/ps-windmill.jpg" alt="Artwork" loading="lazy"
-              onError={e => { e.target.src="/sky.jpg"; }} />
+            <img src={asset("ps-windmill.jpg")} alt="Artwork" loading="lazy"
+              onError={e => { e.target.src = asset("sky.jpg"); }} />
             <div className="contact-art-overlay">
               {[...Array(6)].map((_,i) => (
                 <div key={i} className="contact-geo-diamond"

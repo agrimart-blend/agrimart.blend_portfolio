@@ -6,6 +6,7 @@ import BlobCursor from "./components/BlobCursor";
 import PageReveal from "./components/PageReveal";
 import Home from "./pages/Home";
 import WallfallProject from "./pages/WallfallProject";
+import { asset } from "./lib/asset";
 
 const menuItems = [
   { label: "Home",    ariaLabel: "Go to home",       link: "#hero"                 },
@@ -74,7 +75,7 @@ export default function App() {
         openMenuButtonColor="#fff"
         changeMenuColorOnOpen={true}
         colors={["#c9613a", "#1a1512"]}
-        logoUrl="/logo.svg"
+        logoUrl={asset("logo.svg")}
         accentColor="#c9613a"
       />
       {route === "/wallfall-barricade" ? <WallfallProject /> : <Home />}

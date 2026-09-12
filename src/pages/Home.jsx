@@ -11,6 +11,7 @@ import ContactSection       from "../components/ContactSection";
 import ShadersSection       from "../components/ShadersSection";
 import ShuffleText          from "../components/ShuffleText";
 import ScrambledText        from "../components/ScrambledText";
+import { asset }            from "../lib/asset";
 
 /* ─── Tool logos ─────────────────────────────────────────── */
 const TL = ({ a, c, f }) => (
@@ -39,18 +40,20 @@ const TOOLS = [
 /* ─── FlowingMenu disciplines ────────────────────────────── */
 const DISCIPLINES = [
   { link:"#scroll-animation", text:"Blender 3D",    label:"3D · Rendering · HDRIs",
-    images:["/sky.jpg","/metro.jpg","/room.jpg",
+    images:[asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),
       "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj",
       "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd"] },
   { link:"#scroll-animation", text:"Unreal Engine 5", label:"Real-time · Environments",
-    images:["/ue5.jpg"] },
+    images:[asset("ue5.jpg")] },
   { link:"#scroll-animation", text:"Photoshop Art", label:"Digital · Illustration",
-    images:["/ps-valorant.jpg","/ps-windmill.jpg","/ps-canvas.png"] },
+    images:[asset("ps-valorant.jpg"),asset("ps-windmill.jpg"),asset("ps-canvas.png")] },
 ];
 
 /* ─── Gallery strip ──────────────────────────────────────── */
 const GALLERY = [
-  "/sky.jpg","/metro.jpg","/room.jpg","/ue5.jpg","/ps-windmill.jpg","/ps-valorant.jpg",
+  asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),asset("ue5.jpg"),
+  asset("ps-windmill.jpg"),asset("ps-valorant.jpg"),
+  asset("art/beach.webp"),asset("art/gun.webp"),asset("art/santorini.webp"),
   "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj",
   "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd",
   "https://public-files.gumroad.com/d34rqd01nd7lrbb2mvuk23p33s83",

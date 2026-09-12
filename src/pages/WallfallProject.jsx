@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { asset } from "../lib/asset";
 
 const FEATURES = [
   { t: "Build Barricades", d: "Place walls in real time to block your opponent's path." },
@@ -10,11 +11,11 @@ const FEATURES = [
 ];
 
 const SHOTS = [
-  { src: "/wallfall/shot-1.webp", alt: "Wallfall Barricade gameplay — building a wall in a 1v1 match" },
-  { src: "/wallfall/shot-2.webp", alt: "Wallfall Barricade gameplay — two players closing in on each other" },
-  { src: "/wallfall/shot-3.webp", alt: "Wallfall Barricade main menu — ranked, casual, party and practice modes" },
-  { src: "/wallfall/shot-4.webp", alt: "Wallfall Barricade party screen — friends list and live chat" },
-  { src: "/wallfall/shot-5.webp", alt: "Wallfall Barricade win screen with match rewards" },
+  { src: asset("wallfall/shot-1.webp"), alt: "Wallfall Barricade gameplay — building a wall in a 1v1 match" },
+  { src: asset("wallfall/shot-2.webp"), alt: "Wallfall Barricade gameplay — two players closing in on each other" },
+  { src: asset("wallfall/shot-3.webp"), alt: "Wallfall Barricade main menu — ranked, casual, party and practice modes" },
+  { src: asset("wallfall/shot-4.webp"), alt: "Wallfall Barricade party screen — friends list and live chat" },
+  { src: asset("wallfall/shot-5.webp"), alt: "Wallfall Barricade win screen with match rewards" },
 ];
 
 export default function WallfallProject() {
@@ -32,7 +33,7 @@ export default function WallfallProject() {
       <a href="#hero" className="wf-back">&larr; Back to Portfolio</a>
 
       <section className="wf-hero">
-        <img src="/wallfall/hero.webp" alt="" className="wf-hero-bg" />
+        <img src={asset("wallfall/hero.webp")} alt="" className="wf-hero-bg" />
         <div className="wf-hero-gradient" />
         <div className="wf-hero-content">
           <span className="wf-hero-badge">DOE Studio &middot; Android &middot; Free to Play</span>
@@ -107,7 +108,7 @@ export default function WallfallProject() {
       </section>
 
       <section className="wf-studio wf-reveal">
-        <img src="/wallfall/doe-logo.webp" alt="DOE Studio logo" className="wf-studio-logo" />
+        <img src={asset("wallfall/doe-logo.webp")} alt="DOE Studio logo" className="wf-studio-logo" />
         <div className="wf-studio-body">
           <h3 className="wf-studio-title">Made at DOE Studio</h3>
           <p className="wf-studio-desc">

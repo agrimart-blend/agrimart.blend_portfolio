@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { asset } from "../lib/asset";
 
 export default function ParallaxHero() {
   const bgRef   = useRef(null);
@@ -17,8 +18,8 @@ export default function ParallaxHero() {
   return (
     <section id="hero" className="hero">
       <div className="hero-bg-wrap">
-        <img ref={bgRef} src="/ue5.jpg" alt="UE5 environment" className="hero-bg-img"
-          onError={e => { e.target.src = "/sky.jpg"; }} />
+        <img ref={bgRef} src={asset("ue5.jpg")} alt="UE5 environment" className="hero-bg-img"
+          onError={e => { e.target.src = asset("sky.jpg"); }} />
         <div className="hero-bg-gradient" />
       </div>
 
