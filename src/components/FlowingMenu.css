@@ -1,0 +1,57 @@
+.fm-wrap { width:100%; height:100%; overflow:hidden; }
+
+.fm-nav {
+  display:flex; flex-direction:column; height:100%; margin:0; padding:0;
+}
+
+.fm-item {
+  flex:1; position:relative; overflow:hidden; text-align:center;
+}
+
+.fm-link {
+  display:flex; align-items:center; justify-content:space-between;
+  height:100%; position:relative; padding:0 clamp(2rem,5vw,5rem);
+  text-decoration:none; font-family:'Bebas Neue',cursive;
+  font-size:clamp(2.8rem,6vw,5.5rem); letter-spacing:0.06em;
+  text-transform:uppercase; font-weight:400;
+  transition:opacity 0.2s ease;
+}
+
+.fm-link-main { pointer-events:none; }
+
+.fm-link-label {
+  font-family:'Space Mono',monospace; font-size:0.65rem;
+  letter-spacing:0.25em; opacity:0.45; align-self:center;
+  text-transform:uppercase;
+}
+
+/* Marquee overlay */
+.fm-marquee {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  overflow:hidden; pointer-events:none;
+  transform:translateY(101%);
+}
+
+.fm-marquee-inner {
+  height:100%; display:flex; width:max-content;
+}
+
+.fm-part {
+  display:flex; align-items:center; flex-shrink:0;
+}
+
+.fm-part-text {
+  white-space:nowrap; text-transform:uppercase;
+  font-family:'Bebas Neue',cursive;
+  font-size:clamp(2.8rem,6vw,5.5rem); letter-spacing:0.06em;
+  line-height:1; padding:0 2.5vw;
+}
+
+.fm-thumb {
+  width:clamp(130px,14vw,200px);
+  height:clamp(60px,8vh,100px);
+  margin:1.5em clamp(1rem,2vw,2.5rem);
+  border-radius:60px;
+  background-size:cover; background-position:center;
+  flex-shrink:0;
+}

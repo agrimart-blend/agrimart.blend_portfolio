@@ -1,0 +1,114 @@
+.pr-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pr-panel {
+  flex: 1;
+  will-change: transform;
+  transform-origin: left center;
+}
+
+/* ── Centre logo ── */
+.pr-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  padding: 2rem 2.5rem;
+  will-change: opacity, transform;
+}
+
+.pr-logo-name {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  justify-content: center;
+}
+
+.pr-logo-main {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: 0.08em;
+  color: #0f2744;
+  line-height: 1;
+}
+
+.pr-logo-accent {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: 0.08em;
+  color: #5ec8ff;
+  line-height: 1;
+}
+
+/* Lines under logo */
+.pr-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.pr-line {
+  height: 1.5px;
+  background: linear-gradient(90deg, #5ec8ff, #0f2744);
+  will-change: transform;
+}
+
+.pr-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.32em;
+  color: #0f2744;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ── Geometric brackets ── */
+.pr-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #0f2744;
+  border-style: solid;
+  opacity: 0.5;
+}
+.pr-bracket-tl { top: 0;    left: 0;    border-width: 2px 0 0 2px; }
+.pr-bracket-tr { top: 0;    right: 0;   border-width: 2px 2px 0 0; }
+.pr-bracket-bl { bottom: 0; left: 0;    border-width: 0 0 2px 2px; }
+.pr-bracket-br { bottom: 0; right: 0;   border-width: 0 2px 2px 0; }
+
+/* ── Corner decorations ── */
+.pr-corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  will-change: opacity, transform;
+  transform-origin: center;
+}
+
+.pr-corner-tl { top: 2.2rem;    left: 3rem;   }
+.pr-corner-tr { top: 2.2rem;    right: 3rem;  }
+.pr-corner-bl { bottom: 2.2rem; left: 3rem;   }
+.pr-corner-br { bottom: 2.2rem; right: 3rem;  }
+
+.pr-corner-inner {
+  width: 100%;
+  height: 100%;
+  background: #5ec8ff;
+  transform: rotate(45deg);
+  opacity: 0.6;
+}
+
+.pr-corner-tl .pr-corner-inner,
+.pr-corner-br .pr-corner-inner { background: #0f2744; }

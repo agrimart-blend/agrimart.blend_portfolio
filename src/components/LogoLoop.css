@@ -1,0 +1,47 @@
+.ll-root {
+  position:relative; overflow:hidden; width:100%;
+}
+
+.ll-root.ll-fade::before,
+.ll-root.ll-fade::after {
+  content:''; position:absolute; top:0; bottom:0; z-index:2;
+  width:clamp(40px,8%,120px); pointer-events:none;
+}
+.ll-root.ll-fade::before {
+  left:0;
+  background:linear-gradient(to right, var(--ll-fade-col,#f7f5f0) 0%, transparent 100%);
+}
+.ll-root.ll-fade::after {
+  right:0;
+  background:linear-gradient(to left, var(--ll-fade-col,#f7f5f0) 0%, transparent 100%);
+}
+
+.ll-track {
+  display:flex; flex-direction:row; width:max-content;
+  will-change:transform; user-select:none;
+}
+
+.ll-seq {
+  display:flex; align-items:center; flex-direction:row;
+  list-style:none; margin:0; padding:0;
+}
+
+.ll-item {
+  flex-shrink:0;
+  margin-right:var(--ll-gap,56px);
+  height:var(--ll-h,44px);
+  display:flex; align-items:center;
+}
+
+.ll-img {
+  height:var(--ll-h,44px); width:auto;
+  object-fit:contain; display:block;
+}
+
+.ll-link, .ll-node {
+  display:inline-flex; align-items:center;
+  text-decoration:none; color:inherit;
+  height:var(--ll-h,44px);
+  transition:opacity 0.2s ease;
+}
+.ll-link:hover { opacity:0.7; }

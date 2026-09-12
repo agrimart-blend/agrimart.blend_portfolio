@@ -1,0 +1,155 @@
+.topbar-wrapper {
+  /* Overall frame placement */
+  --topbar-top: 0px;
+  --topbar-left: 2px;
+  --topbar-width: 99vw;
+  --topbar-height: 100vh;
+  --topbar-translate-x: 0px;
+  --topbar-translate-y: 0px;
+  --topbar-scale-x: 1;
+  --topbar-scale-y: 1;
+  --topbar-opacity: 0.7;
+  --topbar-frame-opacity: 1;
+  --topbar-line-color: #939393;
+  --topbar-line-width: 1px;
+
+  /* Bar placement and shape */
+  --topbar-bar-top: 1.93%;
+  --topbar-bar-left: 2.141%;
+  --topbar-bar-width: 89.77%;
+  --topbar-bar-height: 8.61%;
+  --topbar-bar-radius-top-left: 23px;
+  --topbar-bar-radius-top-right: 0px;
+  --topbar-bar-radius-bottom-left: 0px;
+  --topbar-bar-radius-bottom-right: 0px;
+
+  /* Bar colors */
+  --topbar-progress-color: #9a9a9a;
+  --topbar-progress-opacity: 0.5;
+  --topbar-track-color: #dcdcdc;
+  --topbar-track-opacity: 0;
+
+  /* Frame geometry based on the previous Desktop.svg */
+  --topbar-frame-top: 1.81%;
+  --topbar-frame-left: 2.03%;
+  --topbar-frame-width: 95.94%;
+  --topbar-frame-height: 93.90%;
+  --topbar-frame-radius: 12px;
+  --topbar-divider-top: 10.42%;
+  --topbar-divider-left: 92%;
+
+  position: fixed;
+  top: var(--topbar-top, 0px);
+  left: var(--topbar-left, 0px);
+  width: var(--topbar-width, 100vw);
+  height: var(--topbar-height, 100vh);
+  transform: translate(
+      var(--topbar-translate-x, 0px),
+      var(--topbar-translate-y, 0px)
+    )
+    scale(var(--topbar-scale-x, 1), var(--topbar-scale-y, 1));
+  transform-origin: top left;
+  opacity: var(--topbar-opacity, 1);
+  pointer-events: none;
+  z-index: 30;
+}
+
+.topbar-progress-lane,
+.topbar-frame {
+  position: absolute;
+}
+
+.topbar-progress-lane {
+  top: var(--topbar-bar-top);
+  left: var(--topbar-bar-left);
+  width: var(--topbar-bar-width);
+  height: var(--topbar-bar-height);
+  position: absolute;
+  overflow: hidden;
+  transform: translateZ(0);
+  border-top-left-radius: var(--topbar-bar-radius-top-left);
+  border-top-right-radius: var(--topbar-bar-radius-top-right);
+  border-bottom-left-radius: var(--topbar-bar-radius-bottom-left);
+  border-bottom-right-radius: var(--topbar-bar-radius-bottom-right);
+}
+
+.topbar-progress-lane::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--topbar-track-color);
+  opacity: var(--topbar-track-opacity);
+}
+
+.topbar-progress-fill {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: var(--topbar-progress-color);
+  opacity: var(--topbar-progress-opacity);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: none;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.topbar-frame {
+  inset: 0;
+  opacity: var(--topbar-frame-opacity);
+  user-select: none;
+}
+
+.topbar-frame-outline,
+.topbar-frame-line {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.topbar-frame-outline {
+  top: var(--topbar-frame-top);
+  left: var(--topbar-frame-left);
+  width: var(--topbar-frame-width);
+  height: var(--topbar-frame-height);
+  border: var(--topbar-line-width) solid var(--topbar-line-color);
+  border-radius: var(--topbar-frame-radius);
+  opacity: 0.97;
+  box-sizing: border-box;
+}
+
+.topbar-frame-line {
+  background: var(--topbar-line-color);
+}
+
+.topbar-frame-line-horizontal {
+  top: var(--topbar-divider-top);
+  left: var(--topbar-frame-left);
+  width: var(--topbar-frame-width);
+  height: var(--topbar-line-width);
+  opacity: 0.92;
+}
+
+.topbar-frame-line-vertical {
+  top: var(--topbar-frame-top);
+  left: var(--topbar-divider-left);
+  width: var(--topbar-line-width);
+  height: calc(var(--topbar-frame-height) + var(--topbar-line-width));
+  opacity: 0.97;
+}
+
+@media (max-width: 768px) {
+  .topbar-wrapper {
+    --topbar-width: 100vw;
+    --topbar-left: 0px;
+    --topbar-frame-left: 3.2%;
+    --topbar-frame-width: 93.6%;
+    --topbar-divider-left: 88.5%;
+    --topbar-frame-radius: 22px;
+  }
+}
