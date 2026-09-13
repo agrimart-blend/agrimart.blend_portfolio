@@ -1,9 +1,6 @@
 .staggered-menu-wrapper {
   --sm-header-offset-x: clamp(1rem, 4vw, 4.5rem);
   --sm-header-offset-y: clamp(1rem, 3vw, 3.2rem);
-  --sm-toggle-offset-x: 0px;
-  --sm-toggle-offset-y: 0px;
-  --sm-toggle-width: clamp(84px, 8vw, 150px);
   --sm-toggle-height: clamp(48px, 4.4vw, 60px);
   --sm-toggle-cut: 18px;
   --sm-toggle-radius: 14px;
@@ -66,9 +63,9 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  width: var(--sm-toggle-width);
+  width: auto;
   min-height: var(--sm-toggle-height);
-  padding: 0.9rem 1.15rem 0.9rem 1.15rem;
+  padding: 0.9rem 1.3rem;
   background: #ffffff;
   border: none;
   cursor: pointer;
@@ -77,7 +74,6 @@
   font-size: clamp(0.78rem, 0.92vw, 0.95rem);
   line-height: 1;
   white-space: nowrap;
-  overflow: hidden;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -89,7 +85,6 @@
   box-shadow: 0 10px 24px rgba(19, 14, 32, 0.18);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  transform: translate(var(--sm-toggle-offset-x), var(--sm-toggle-offset-y));
   flex-shrink: 0;
 }
 
@@ -109,8 +104,9 @@
   height: 1em;
   overflow: hidden;
   white-space: nowrap;
-  width: var(--sm-toggle-width, auto);
-  min-width: var(--sm-toggle-width, auto);
+  /* Fixed to fit the longest label ("CLOSE") so the button doesn't
+     resize when the text swaps between "Menu" and "Close". */
+  width: 3.6em;
 }
 
 .sm-toggle-textInner {
@@ -158,7 +154,6 @@
   .staggered-menu-wrapper {
     --sm-header-offset-x: 1rem;
     --sm-header-offset-y: 1rem;
-    --sm-toggle-width: 118px;
     --sm-toggle-height: 50px;
     --sm-toggle-cut: 14px;
     --sm-toggle-radius: 12px;

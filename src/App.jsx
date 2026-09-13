@@ -63,7 +63,7 @@ export default function App() {
     <div className="app-root">
       {!revealed && <PageReveal onComplete={() => setRevealed(true)} />}
       <TopBar />
-      <BlobCursor fillColor="#f2b84e" />
+      <BlobCursor fillColor="#EBDA98" />
       <StaggeredMenu
         position="right"
         items={menuItems}

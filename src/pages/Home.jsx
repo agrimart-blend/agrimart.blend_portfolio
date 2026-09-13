@@ -40,7 +40,7 @@ const TOOLS = [
 /* ─── FlowingMenu disciplines ────────────────────────────── */
 const DISCIPLINES = [
   { link:"#scroll-animation", text:"Blender 3D",    label:"3D · Rendering · HDRIs",
-    images:[asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),
+    images:[asset("art/meteor.webp"),asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),
       "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj",
       "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd"] },
   { link:"#scroll-animation", text:"Unreal Engine 5", label:"Real-time · Environments",
@@ -53,7 +53,7 @@ const DISCIPLINES = [
 const GALLERY = [
   asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),asset("ue5.jpg"),
   asset("ps-windmill.jpg"),asset("ps-valorant.jpg"),
-  asset("art/beach.webp"),asset("art/gun.webp"),asset("art/santorini.webp"),
+  asset("art/meteor.webp"),asset("art/beach.webp"),asset("art/gun.webp"),asset("art/santorini.webp"),
   "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj",
   "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd",
   "https://public-files.gumroad.com/d34rqd01nd7lrbb2mvuk23p33s83",
