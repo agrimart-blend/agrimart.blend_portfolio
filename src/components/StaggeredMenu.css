@@ -1,8 +1,8 @@
 .staggered-menu-wrapper {
   --sm-header-offset-x: clamp(1rem, 4vw, 4.5rem);
   --sm-header-offset-y: clamp(1rem, 3vw, 3.2rem);
-  --sm-toggle-offset-x: 50px;
-  --sm-toggle-offset-y: -32px;
+  --sm-toggle-offset-x: 0px;
+  --sm-toggle-offset-y: 0px;
   --sm-toggle-width: clamp(84px, 8vw, 150px);
   --sm-toggle-height: clamp(48px, 4.4vw, 60px);
   --sm-toggle-cut: 18px;

@@ -3,112 +3,78 @@
   inset: 0;
   z-index: 99000;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-dark, #1a1512);
+  clip-path: circle(150% at 50% 50%);
+  transition: clip-path 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: clip-path;
 }
 
-.pr-panel {
-  flex: 1;
-  will-change: transform;
-  transform-origin: left center;
+.pr-overlay.pr-exit {
+  clip-path: circle(0% at 50% 50%);
 }
 
-/* ── Centre logo ── */
 .pr-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   text-align: center;
-  z-index: 10;
-  pointer-events: none;
-  padding: 2rem 2.5rem;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.35s ease, transform 0.35s ease;
   will-change: opacity, transform;
+}
+
+.pr-logo.pr-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pr-logo.pr-exit {
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pr-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  border: 1px solid var(--accent, #c9613a);
+  opacity: 0;
+  animation: prRingPulse 1.1s ease-out 0.15s;
+}
+
+@keyframes prRingPulse {
+  0%   { opacity: 0.6; transform: scale(0.4); }
+  100% { opacity: 0;   transform: scale(9); }
 }
 
 .pr-logo-name {
   display: flex;
   align-items: baseline;
-  gap: 0;
   justify-content: center;
 }
 
-.pr-logo-main {
-  font-family: 'Bebas Neue', cursive;
-  font-size: clamp(3rem, 7vw, 6rem);
-  letter-spacing: 0.08em;
-  color: #0f2744;
-  line-height: 1;
-}
-
+.pr-logo-main,
 .pr-logo-accent {
   font-family: 'Bebas Neue', cursive;
   font-size: clamp(3rem, 7vw, 6rem);
   letter-spacing: 0.08em;
-  color: #5ec8ff;
   line-height: 1;
 }
 
-/* Lines under logo */
-.pr-lines {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-top: 1rem;
-  align-items: center;
-}
-
-.pr-line {
-  height: 1.5px;
-  background: linear-gradient(90deg, #5ec8ff, #0f2744);
-  will-change: transform;
-}
+.pr-logo-main   { color: #f7f5f0; }
+.pr-logo-accent { color: var(--accent, #c9613a); }
 
 .pr-tag {
   font-family: 'Space Mono', monospace;
   font-size: 0.62rem;
   letter-spacing: 0.32em;
-  color: #0f2744;
+  color: rgba(247, 245, 240, 0.5);
   margin-top: 1rem;
   text-transform: uppercase;
-  opacity: 0.7;
 }
-
-/* ── Geometric brackets ── */
-.pr-bracket {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-color: #0f2744;
-  border-style: solid;
-  opacity: 0.5;
-}
-.pr-bracket-tl { top: 0;    left: 0;    border-width: 2px 0 0 2px; }
-.pr-bracket-tr { top: 0;    right: 0;   border-width: 2px 2px 0 0; }
-.pr-bracket-bl { bottom: 0; left: 0;    border-width: 0 0 2px 2px; }
-.pr-bracket-br { bottom: 0; right: 0;   border-width: 0 2px 2px 0; }
-
-/* ── Corner decorations ── */
-.pr-corner {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  will-change: opacity, transform;
-  transform-origin: center;
-}
-
-.pr-corner-tl { top: 2.2rem;    left: 3rem;   }
-.pr-corner-tr { top: 2.2rem;    right: 3rem;  }
-.pr-corner-bl { bottom: 2.2rem; left: 3rem;   }
-.pr-corner-br { bottom: 2.2rem; right: 3rem;  }
-
-.pr-corner-inner {
-  width: 100%;
-  height: 100%;
-  background: #5ec8ff;
-  transform: rotate(45deg);
-  opacity: 0.6;
-}
-
-.pr-corner-tl .pr-corner-inner,
-.pr-corner-br .pr-corner-inner { background: #0f2744; }
