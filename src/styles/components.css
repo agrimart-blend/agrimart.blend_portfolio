@@ -9,7 +9,7 @@
 .hero-bg-wrap{position:absolute;inset:0;overflow:hidden}
 .hero-bg-img{display:block;width:100%;height:110%;object-fit:cover;transform-origin:center top;will-change:transform}
 .hero-bg-gradient{position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(247,245,240,.9) 0%,rgba(247,245,240,.5) 28%,rgba(247,245,240,.18) 50%,transparent 72%)}
+  background:linear-gradient(to top,rgba(247,245,240,.63) 0%,rgba(247,245,240,.35) 28%,rgba(247,245,240,.126) 50%,transparent 72%)}
 .hero-grid-overlay{position:absolute;inset:0;pointer-events:none;z-index:1}
 .hero-grid-line-v,.hero-grid-line-h{position:absolute;background:rgba(26,21,18,.035)}
 .hero-grid-line-v{top:0;bottom:0;width:1px}
@@ -22,8 +22,8 @@
 @keyframes heroPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
 .hero-title{font-family:var(--font-disp);font-size:clamp(5rem,14vw,12rem);
   line-height:.86;letter-spacing:.03em;text-transform:uppercase;
-  color:var(--text);display:flex;flex-direction:column}
-.hero-title-line-2{color:var(--accent)}
+  color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.25);display:flex;flex-direction:column}
+.hero-title-line-2{color:#fff}
 .hero-subtitle{margin-top:1.4rem;font-size:.78rem;letter-spacing:.18em;
   text-transform:uppercase;color:var(--muted)}
 .hero-ctas{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}

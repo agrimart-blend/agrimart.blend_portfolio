@@ -123,3 +123,17 @@
   .wf-gallery{grid-template-columns:1fr}
   .wf-gallery .wf-shot:first-child{grid-column:span 1}
 }
+
+/* =========================================================
+   CATEGORY PLACEHOLDER PAGES (3D / 2D / Games)
+   ========================================================= */
+.category-page{background:var(--bg);min-height:100vh}
+.category-hero{min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;gap:1.2rem;
+  padding:clamp(2rem,8vw,6rem)}
+.category-title{font-family:var(--font-disp);font-size:clamp(4rem,16vw,11rem);
+  line-height:.86;letter-spacing:.03em;text-transform:uppercase;color:var(--text)}
+.category-desc{max-width:560px;font-size:.9rem;line-height:1.8;color:var(--muted)}
+.category-placeholder-tag{font-family:var(--font-mono);font-size:.65rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--border);padding:.6rem 1.1rem;margin-top:.6rem}

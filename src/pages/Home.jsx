@@ -39,13 +39,14 @@ const TOOLS = [
 
 /* ─── FlowingMenu disciplines ────────────────────────────── */
 const DISCIPLINES = [
-  { link:"#scroll-animation", text:"Blender 3D",    label:"3D · Rendering · HDRIs",
+  { link:"#/3d", text:"Blender 3D",    label:"3D · Rendering · HDRIs",
     images:[asset("art/meteor.webp"),asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),
+      asset("art/donut-render.webp"),
       "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj",
       "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd"] },
-  { link:"#scroll-animation", text:"Unreal Engine 5", label:"Real-time · Environments",
+  { link:"#/3d", text:"Unreal Engine 5", label:"Real-time · Environments",
     images:[asset("ue5.jpg")] },
-  { link:"#scroll-animation", text:"Photoshop Art", label:"Digital · Illustration",
+  { link:"#/2d", text:"Photoshop Art", label:"Digital · Illustration",
     images:[asset("ps-valorant.jpg"),asset("ps-windmill.jpg"),asset("ps-canvas.png")] },
 ];
 

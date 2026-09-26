@@ -6,6 +6,7 @@ import BlobCursor from "./components/BlobCursor";
 import PageReveal from "./components/PageReveal";
 import Home from "./pages/Home";
 import WallfallProject from "./pages/WallfallProject";
+import CategoryPage from "./pages/CategoryPage";
 import { asset } from "./lib/asset";
 
 const menuItems = [
@@ -78,7 +79,11 @@ export default function App() {
         logoUrl={asset("logo.svg")}
         accentColor="#c9613a"
       />
-      {route === "/wallfall-barricade" ? <WallfallProject /> : <Home />}
+      {route === "/wallfall-barricade" ? <WallfallProject />
+        : route === "/3d" ? <CategoryPage kind="3d" />
+        : route === "/2d" ? <CategoryPage kind="2d" />
+        : route === "/games" ? <CategoryPage kind="games" />
+        : <Home />}
     </div>
   );
 }

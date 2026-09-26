@@ -142,13 +142,16 @@ export default function ScrollFrameCanvas() {
         setStage(s);
 
       } else {
-        /* ── AFTER: fully scrolled past — back into document flow, hidden.
-           Force the canvas to hold the FINAL frame before hiding it, so a
-           fast/programmatic scroll (anchor jump, restored scroll position,
-           refresh while scrolled down) can never skip straight past the
-           sequence without the last frame ever having been painted — and
-           scrolling back up shows the correct frame immediately instead of
-           a stale/blank one. ── */
+        /* ── AFTER: fully scrolled past — back into document flow, pinned to
+           the bottom of the section. Force the canvas to hold the FINAL
+           frame so a fast/programmatic scroll (anchor jump, restored scroll
+           position, refresh while scrolled down) can never skip straight
+           past the sequence without the last frame ever having been
+           painted — and scrolling back up shows the correct frame
+           immediately instead of a stale/blank one.
+           Stays VISIBLE here (unlike the old hidden state) so the sequence
+           scrolls seamlessly into the next section instead of cutting to a
+           blank/white flash right as it ends. ── */
         const last = TOTAL - 1;
         if (frameRef.current !== last) {
           frameRef.current = last;
@@ -163,7 +166,7 @@ export default function ScrollFrameCanvas() {
           left:       "0",
           width:      "100%",
           height:     "100vh",
-          visibility: "hidden",
+          visibility: "visible",
           zIndex:     "",
         });
       }

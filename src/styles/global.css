@@ -15,6 +15,22 @@
   --font-disp: 'Bebas Neue', cursive;
   --font-mono: 'Space Mono', monospace;
   --font-jp:   'Noto Serif JP', serif;
+
+  /* ── Shared coordinates for the TopBar's inner grey-line corner box, so
+     the MENU toggle can be sized/positioned to sit exactly inside it
+     instead of floating over/past it. Mirrors --topbar-frame-top /
+     --topbar-divider-top / --topbar-divider-left in TopBar.css. ── */
+  --menu-box-top:    1.81vh;
+  --menu-box-height: 8.61vh;
+  --menu-box-right:  2.03vw;
+  --menu-box-width:  5.97vw;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --menu-box-right: 3.2vw;
+    --menu-box-width: 8.3vw;
+  }
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -42,7 +58,8 @@ button{ cursor:none; }
 }
 
 /* ── Loading screen (skeleton exact) ── */
-.loader{position:fixed;inset:0;min-height:100svh;overflow:hidden;background:#ededed;
+.loader{position:fixed;inset:0;min-height:100svh;overflow:hidden;
+  background:radial-gradient(130% 130% at 88% 0%,#f3f0e9 0%,#e4dfd4 42%,#cdc4b2 78%,#c2b8a4 100%);
   --loader-ui-top:clamp(360px,58svh,520px);
   --loader-frame-top:clamp(430px,70svh,640px);
   --loader-frame-left:clamp(62%,72vw,78%);

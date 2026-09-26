@@ -58,20 +58,27 @@
 }
 
 .sm-toggle {
-  position: relative;
+  /* Sized/positioned to sit exactly inside the TopBar's inner grey-line
+     corner box (see --menu-box-* in global.css) instead of floating past
+     its edges. */
+  position: fixed;
+  top: var(--menu-box-top);
+  right: var(--menu-box-right);
+  width: var(--menu-box-width);
+  height: var(--menu-box-height);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  width: auto;
-  min-height: var(--sm-toggle-height);
-  padding: 0.9rem 1.3rem;
+  gap: 0.5em;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 0 0.9em;
   background: #ffffff;
   border: none;
   cursor: pointer;
   color: #111;
   font-weight: 700;
-  font-size: clamp(0.78rem, 0.92vw, 0.95rem);
+  font-size: clamp(0.62rem, 0.75vw, 0.85rem);
   line-height: 1;
   white-space: nowrap;
   clip-path: polygon(
@@ -81,11 +88,12 @@
     var(--sm-toggle-cut) 100%,
     0 calc(100% - var(--sm-toggle-cut))
   );
-  border-radius: var(--sm-toggle-radius) var(--sm-toggle-radius) 0 0;
+  border-radius: 0;
   box-shadow: 0 10px 24px rgba(19, 14, 32, 0.18);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   flex-shrink: 0;
+  z-index: 61;
 }
 
 .sm-toggle:focus-visible {
@@ -150,6 +158,18 @@
   will-change: transform;
 }
 
+/* Between phone and the widest desktops the corner box gets too narrow for
+   the label + icon together — drop the label and keep the box icon-only so
+   the button still fits fully inside it. */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .sm-toggle-textWrap {
+    display: none;
+  }
+  .sm-toggle {
+    gap: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .staggered-menu-wrapper {
     --sm-header-offset-x: 1rem;
@@ -157,6 +177,26 @@
     --sm-toggle-height: 50px;
     --sm-toggle-cut: 14px;
     --sm-toggle-radius: 12px;
+  }
+
+  /* The corner box is too small to hold a usable tap target on phones —
+     fall back to a comfortably sized button anchored to the header corner
+     instead of stretching to fit the (tiny) box. */
+  .sm-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+    min-height: var(--sm-toggle-height);
+    padding: 0.9rem 1.3rem;
+    font-size: clamp(0.78rem, 3vw, 0.95rem);
+    gap: 0.65rem;
+    border-radius: var(--sm-toggle-radius) var(--sm-toggle-radius) 0 0;
+  }
+
+  .sm-toggle-textWrap {
+    display: inline-block;
   }
 }
 
