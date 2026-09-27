@@ -7,6 +7,7 @@ import PageReveal from "./components/PageReveal";
 import Home from "./pages/Home";
 import WallfallProject from "./pages/WallfallProject";
 import CategoryPage from "./pages/CategoryPage";
+import ThreeDPage from "./pages/ThreeDPage";
 import { asset } from "./lib/asset";
 
 const menuItems = [
@@ -36,25 +37,29 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [route, setRoute] = useState(readRoute());
+  const [nav, setNav] = useState(null);
 
   useEffect(() => {
-    const onHashChange = () => {
+    const onHashChange = e => {
       const next = readRoute();
+      const prev = e.oldURL.includes("#/") ? e.oldURL.slice(e.oldURL.indexOf("#") + 1) : "/";
       setRoute(next);
-      if (next === "/") {
-        const anchor = window.location.hash.slice(1);
-        if (anchor) {
-          requestAnimationFrame(() => {
-            document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth" });
-          });
-        }
-      } else {
-        window.scrollTo({ top: 0 });
-      }
+      setNav({ anchor: next === "/" ? window.location.hash.slice(1) : "", crossPage: prev !== next });
     };
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
+
+  /* Runs after the new route has rendered, so an anchor on the home page
+     (e.g. "#contact" clicked from a sub-page) exists before we scroll to it. */
+  useEffect(() => {
+    if (!nav) return;
+    if (!nav.anchor) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    document.getElementById(nav.anchor)?.scrollIntoView({ behavior: nav.crossPage ? "auto" : "smooth" });
+  }, [nav]);
 
   if (!loaded) {
     return <LoadingScreen finishLoading={() => setLoaded(true)} />;
@@ -80,7 +85,7 @@ export default function App() {
         accentColor="#c9613a"
       />
       {route === "/wallfall-barricade" ? <WallfallProject />
-        : route === "/3d" ? <CategoryPage kind="3d" />
+        : route === "/3d" ? <ThreeDPage />
         : route === "/2d" ? <CategoryPage kind="2d" />
         : route === "/games" ? <CategoryPage kind="games" />
         : <Home />}

@@ -1,9 +1,4 @@
 const CATEGORIES = {
-  "3d": {
-    label: "3D · Rendering · HDRIs",
-    title: "3D",
-    desc: "Blender & Unreal Engine 5 work lives here — renders, HDRIs and real-time environments.",
-  },
   "2d": {
     label: "Digital · Illustration",
     title: "2D",
@@ -17,17 +12,18 @@ const CATEGORIES = {
 };
 
 export default function CategoryPage({ kind }) {
-  const cat = CATEGORIES[kind] || CATEGORIES["3d"];
+  const cat = CATEGORIES[kind] || CATEGORIES["2d"];
 
   return (
     <main className="category-page">
-      <a href="#hero" className="wf-back">&larr; Back to Portfolio</a>
-
       <section className="category-hero">
-        <span className="section-label">{cat.label}</span>
-        <h1 className="category-title">{cat.title}</h1>
-        <p className="category-desc">{cat.desc}</p>
-        <span className="category-placeholder-tag">Page coming soon</span>
+        <div className="category-hero-inner">
+          <a href="#hero" className="category-back">&larr; Back to Portfolio</a>
+          <span className="section-label">{cat.label}</span>
+          <h1 className="category-title">{cat.title}</h1>
+          <p className="category-desc">{cat.desc}</p>
+          <span className="category-placeholder-tag">Page coming soon</span>
+        </div>
       </section>
     </main>
   );
