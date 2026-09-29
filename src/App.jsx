@@ -5,7 +5,9 @@ import TopBar from "./components/TopBar/TopBar";
 import BlobCursor from "./components/BlobCursor";
 import PageReveal from "./components/PageReveal";
 import Home from "./pages/Home";
+import GameShowcase from "./components/GameShowcase";
 import WallfallProject from "./pages/WallfallProject";
+import FreeDriveProject from "./pages/FreeDriveProject";
 import CategoryPage from "./pages/CategoryPage";
 import ThreeDPage from "./pages/ThreeDPage";
 import { asset } from "./lib/asset";
@@ -13,7 +15,7 @@ import { asset } from "./lib/asset";
 const menuItems = [
   { label: "Home",    ariaLabel: "Go to home",       link: "#hero"                 },
   { label: "Work",    ariaLabel: "View work",        link: "#disciplines"          },
-  { label: "Games",   ariaLabel: "View Wallfall Barricade", link: "#/wallfall-barricade" },
+  { label: "Games",   ariaLabel: "View game projects", link: "#/games" },
   { label: "Assets",  ariaLabel: "Browse assets",    link: "#assets"               },
   { label: "Patreon", ariaLabel: "Membership",       link: "#patreon"              },
   { label: "Connect", ariaLabel: "Get in touch",     link: "#contact"              },
@@ -85,9 +87,10 @@ export default function App() {
         accentColor="#c9613a"
       />
       {route === "/wallfall-barricade" ? <WallfallProject />
+        : route === "/free-drive-world" ? <FreeDriveProject />
+        : route === "/games" ? <GameShowcase />
         : route === "/3d" ? <ThreeDPage />
         : route === "/2d" ? <CategoryPage kind="2d" />
-        : route === "/games" ? <CategoryPage kind="games" />
         : <Home />}
     </div>
   );

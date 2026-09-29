@@ -1,8 +1,24 @@
+import { useEffect } from "react";
 import { asset } from "../lib/asset";
 
 const SHOTS = ["wallfall/shot-1.webp", "wallfall/shot-3.webp", "wallfall/shot-4.webp"].map(asset);
 
 export default function GameShowcase() {
+  useEffect(() => {
+    const elements = document.querySelectorAll("#games .reveal");
+    const io = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          io.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.06, rootMargin: "0px 0px -30px 0px" }
+    );
+    elements.forEach(element => io.observe(element));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section id="games" className="games-section">
       <div className="games-inner">
@@ -43,6 +59,28 @@ export default function GameShowcase() {
               >
                 Get it on Google Play &#8599;
               </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="game-card game-card--racing reveal">
+          <div className="game-card-media">
+            <img src={asset("free-drive/coastal-sunset.webp")} alt="Sunset coastline environment from Free Drive World" loading="lazy" />
+            <div className="game-card-media-fade" />
+          </div>
+
+          <div className="game-card-body">
+            <span className="game-card-tag">Mobile Racing &middot; Godot &middot; Closed Testing</span>
+            <h3 className="game-card-title">Free Drive World</h3>
+            <p className="game-card-desc">
+              A mobile racing game in closed testing. I built its varied driving environments
+              in Blender and brought them into Godot. Public release coming soon.
+            </p>
+            <div className="game-card-ctas">
+              <a href="#/free-drive-world" className="game-btn game-btn-primary">
+                View Project &rarr;
+              </a>
+              <span className="game-btn game-btn-status" role="status">Coming soon</span>
             </div>
           </div>
         </div>

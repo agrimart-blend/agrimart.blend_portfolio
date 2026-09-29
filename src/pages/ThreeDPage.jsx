@@ -44,6 +44,14 @@ const SERVICES = [
 
 const PIPELINE = ["Concept", "Blockout", "Model", "Shade & Texture", "Light", "Render & Comp"];
 
+const GAME_ENVIRONMENTS = [
+  { src: "free-drive/coastal-sunset.webp", title: "Coastal sunset", alt: "Sunset over the ocean in a coastal racing environment", size: "feature" },
+  { src: "free-drive/city-loop-dusk.webp", title: "City circuit", alt: "Elevated view of roads and buildings in a racing-game city" },
+  { src: "free-drive/river-bridge.webp", title: "River crossing", alt: "Road bridge crossing a river in a forested landscape" },
+  { src: "free-drive/green-hills-road.webp", title: "Green hills", alt: "Winding road through a green, tree-covered racing environment" },
+  { src: "free-drive/alpine-road.webp", title: "Alpine pass", alt: "Mountain road through a snowy alpine environment" },
+];
+
 export default function ThreeDPage() {
   const toGallery = () => document.getElementById("renders")?.scrollIntoView({ behavior: "smooth" });
 
@@ -78,6 +86,29 @@ export default function ThreeDPage() {
       <div id="renders">
         <RenderGallery chapters={CHAPTERS} />
       </div>
+
+      <section className="t3d-block t3d-game-worlds" aria-labelledby="t3d-game-worlds-title">
+        <div className="t3d-block-head">
+          <span className="section-label">Blender &rarr; Godot &middot; Mobile game</span>
+          <h2 id="t3d-game-worlds-title" className="t3d-h2">Worlds built<br />for the drive</h2>
+          <p className="t3d-worlds-intro">
+            I made these environments in Blender and used them in Free Drive World, a mobile
+            racing game in closed testing with Godot.
+          </p>
+          <a href="#/free-drive-world" className="t3d-worlds-link">Explore the game project &rarr;</a>
+        </div>
+        <div className="t3d-worlds-grid">
+          {GAME_ENVIRONMENTS.map((world) => (
+            <figure key={world.src} className={`t3d-world-card ${world.size || ""}`}>
+              <img src={asset(world.src)} alt={world.alt} loading="lazy" />
+              <figcaption>
+                <span>Blender environment &middot; used in Godot</span>
+                <strong>{world.title}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
       <section className="t3d-block">
         <div className="t3d-block-head">
