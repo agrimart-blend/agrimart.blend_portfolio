@@ -35,7 +35,7 @@ export default function FreeDriveProject() {
       <a href="#/games" className="wf-back">&larr; Back to Games</a>
 
       <section className="fd-hero">
-        <img className="fd-hero-image" src={asset("free-drive/coastal-sunset.webp")} alt="" />
+        <img className="fd-hero-image" src={asset("free-drive/lighthouse-island.webp")} alt="" />
         <div className="fd-hero-shade" />
         <div className="fd-hero-content">
           <span className="fd-kicker">Mobile racing &middot; Blender environments &middot; Godot</span>
