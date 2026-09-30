@@ -65,17 +65,26 @@ export default function GameShowcase() {
 
         <div className="game-card game-card--racing reveal">
           <div className="game-card-media">
-            <img src={asset("free-drive/coastal-sunset.webp")} alt="Sunset coastline environment from Free Drive World" loading="lazy" />
+            <img src={asset("free-drive/promo-race-ui.webp")} alt="Race interface concept showing a race in progress and mobile driving controls" loading="lazy" />
             <div className="game-card-media-fade" />
+            <span className="game-card-image-caption">Race interface concept</span>
           </div>
 
           <div className="game-card-body">
-            <span className="game-card-tag">Mobile Racing &middot; Godot &middot; Closed Testing</span>
+            <span className="game-card-tag">Mobile Racing &middot; Android &middot; Closed Testing</span>
             <h3 className="game-card-title">Free Drive World</h3>
             <p className="game-card-desc">
-              A mobile racing game in closed testing. I built its varied driving environments
-              in Blender and brought them into Godot. Public release coming soon.
+              A mobile racing world built around free-drive exploration, race events, a
+              customization garage and boost-driven touch controls. Its routes span city
+              circuits, forests and coastlines, with environments made in Blender and brought
+              into Godot. Currently in closed testing.
             </p>
+            <ul className="game-card-features" aria-label="Game highlights">
+              <li>Free-drive exploration</li>
+              <li>Race events</li>
+              <li>Car customization</li>
+              <li>Boost &amp; mobile controls</li>
+            </ul>
             <div className="game-card-ctas">
               <a href="#/free-drive-world" className="game-btn game-btn-primary">
                 View Project &rarr;
