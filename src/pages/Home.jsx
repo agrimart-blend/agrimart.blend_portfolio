@@ -9,6 +9,7 @@ import PatreonSection       from "../components/PatreonSection";
 import ReviewsSection       from "../components/ReviewsSection";
 import ContactSection       from "../components/ContactSection";
 import ShadersSection       from "../components/ShadersSection";
+import AccordionGallery    from "../components/AccordionGallery";
 import ShuffleText          from "../components/ShuffleText";
 import ScrambledText        from "../components/ScrambledText";
 import { asset }            from "../lib/asset";
@@ -51,17 +52,6 @@ const DISCIPLINES = [
   { link:"#/games", text:"Games", label:"Racing · Strategy · 2D Adventure (WIP)",
     images:[asset("free-drive/promo-race-ui.webp"),asset("games/wallfall-play-with-friends.webp"),
       asset("games/pixel-adventure-in-development.webp")] },
-];
-
-/* ─── Gallery strip ──────────────────────────────────────── */
-const GALLERY = [
-  asset("sky.jpg"),asset("metro.jpg"),asset("room.jpg"),asset("ue5.jpg"),
-  asset("ps-windmill.jpg"),asset("ps-valorant.jpg"),
-  asset("art/meteor.webp"),asset("art/beach.webp"),asset("art/gun.webp"),asset("art/santorini.webp"),
-  "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj",
-  "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd",
-  "https://public-files.gumroad.com/d34rqd01nd7lrbb2mvuk23p33s83",
-  "https://public-files.gumroad.com/t1elcqn3ws9ca5iqv2n7cdqhek3b",
 ];
 
 /* ─── Assets ─────────────────────────────────────────────── */
@@ -184,20 +174,11 @@ export default function Home() {
         <LogoLoop logos={TOOLS} speed={70} logoHeight={42} gap={52} pauseOnHover fadeOut />
       </section>
 
-      {/* 6 SCROLL FRAME ANIMATION */}
-      <ScrollFrameCanvas />
+      {/* 6 MATERIAL ARTWORK — interactive studies with tool-specific cursors */}
+      <AccordionGallery />
 
-      {/* 7 GALLERY MARQUEE */}
-      <div className="gallery-strip">
-        <div className="gallery-track">
-          {[...GALLERY,...GALLERY].map((src,i) => (
-            <div key={i} className="gallery-thumb">
-              <img src={src} alt="" loading="lazy"
-                onError={e => { e.target.style.display="none"; }} />
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* 7 SCROLL FRAME ANIMATION */}
+      <ScrollFrameCanvas />
 
       {/* 7.5 GAMES SHOWCASE */}
       <GameShowcase />
