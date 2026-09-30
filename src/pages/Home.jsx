@@ -48,6 +48,9 @@ const DISCIPLINES = [
     images:[asset("ue5.jpg")] },
   { link:"#/2d", text:"Photoshop Art", label:"Digital · Illustration",
     images:[asset("ps-valorant.jpg"),asset("ps-windmill.jpg"),asset("ps-canvas.png")] },
+  { link:"#/games", text:"Games", label:"Racing · Strategy · 2D Adventure (WIP)",
+    images:[asset("free-drive/promo-race-ui.webp"),asset("games/wallfall-play-with-friends.webp"),
+      asset("games/pixel-adventure-in-development.webp")] },
 ];
 
 /* ─── Gallery strip ──────────────────────────────────────── */
@@ -124,7 +127,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 3 DISCIPLINES */}
+      {/* 4 DISCIPLINES */}
       <section id="disciplines" className="disciplines-section">
         <div className="disciplines-header reveal">
           <div className="section-label">Disciplines</div>
