@@ -1,21 +1,15 @@
 import { useEffect, useRef } from "react";
 
-/*
- * Each checkpoint's `gap` is the relative scroll distance to the NEXT
- * checkpoint — bigger gap = more time passed in real life = a longer
- * stretch of "road" between the two nodes.
- */
+/* Each checkpoint's `gap` controls the visual breathing room to the next. */
 const CHECKPOINTS = [
-  { n: 1,  title: "Being a Student",        desc: "Where it all began — just a kid in school.",                                                   gap: 4 },
-  { n: 2,  title: "Getting Into Art",       desc: "The hand-drawn era — sketchbooks, pencils, and endless doodles.",                               gap: 2 },
-  { n: 3,  title: "Awards & Certificates",  desc: "Racked up recognitions for the craft.",                                                         gap: 2 },
-  { n: 4,  title: "Passing 10th",           desc: "Cleared a major milestone in school.",                                                          gap: 2 },
-  { n: 5,  title: "First PC / Laptop",      desc: "The machine that opened the digital door.",                                                     gap: 1 },
-  { n: 6,  title: "Started Using Blender",  desc: "First steps into 3D.",                                                                           gap: 2 },
-  { n: 7,  title: "Made First Sale",        desc: "Turned skill into income for the first time.",                                                  gap: 3 },
-  { n: 8,  title: "Learned New Software",   desc: "Clip Studio Paint, UE5, Substance Designer, Substance Painter, Photoshop.",                     gap: 2 },
-  { n: 9,  title: "600+ Sales",             desc: "Hundreds of 3D art pieces — 600+ sales across Gumroad & CGTrader.",                              gap: 2 },
-  { n: 10, title: "The Learning Phase",     desc: "Learning UE5, making a game in Godot, learning After Effects — the road keeps going.", current: true },
+  { n: 1, title: "Started with drawing", desc: "Sketchbooks and pencils became my first way to shape ideas and tell stories.", gap: 1.2 },
+  { n: 2, title: "Art recognition", desc: "Earned awards and certificates for my creative work.", gap: 1.2 },
+  { n: 3, title: "Moved into digital art", desc: "Brought traditional drawing into digital illustration, design and 3D.", gap: 1.2 },
+  { n: 4, title: "Found my world in Blender", desc: "Built anime-inspired renders, hand-painted HDRIs and immersive environments.", gap: 1.5 },
+  { n: 5, title: "First creative sale", desc: "Turned my art into a product and began sharing it with other creators.", gap: 1.2 },
+  { n: 6, title: "Expanded the toolkit", desc: "Grew into Unreal Engine 5, Photoshop, Clip Studio Paint and more.", gap: 1.5 },
+  { n: 7, title: "600+ product sales", desc: "Creative assets sold across Gumroad and CGTrader.", gap: 1.5 },
+  { n: 8, title: "Creating interactive worlds", desc: "Building a Godot mobile racing game and an original 2D adventure, while continuing to explore real-time 3D.", current: true },
 ];
 
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
@@ -56,9 +50,9 @@ export default function RoadmapSection() {
   return (
     <section id="roadmap" className="roadmap-section">
       <div className="roadmap-header reveal">
-        <div className="section-label">Journey</div>
-        <h2 className="section-title roadmap-title">The Road<br/>So Far</h2>
-        <p className="roadmap-sub">22 AUG 2007 — PRESENT</p>
+        <div className="section-label">Creative Journey</div>
+        <h2 className="section-title roadmap-title">From Sketches<br/>to Playable Worlds</h2>
+        <p className="roadmap-sub">DRAWING · DIGITAL ART · 3D · GAMES</p>
       </div>
 
       <div className="roadmap-track">
@@ -67,20 +61,10 @@ export default function RoadmapSection() {
             <div className="roadmap-line-fill" ref={fillRef} />
           </div>
 
-          {/* Birth marker */}
-          <div className="roadmap-node roadmap-node-birth reveal">
-            <div className="roadmap-dot roadmap-dot-birth" />
-            <div className="roadmap-card roadmap-card-birth">
-              <span className="roadmap-cp">ORIGIN</span>
-              <h3 className="roadmap-card-title">Born</h3>
-              <p className="roadmap-card-desc roadmap-card-date">22 August 2007</p>
-            </div>
-          </div>
-
           {CHECKPOINTS.map((cp, i) => {
             /* a checkpoint's own `gap` is the distance to the NEXT node,
                so the node's margin-top comes from the PREVIOUS one's gap */
-            const gapBefore = i === 0 ? 3 : (CHECKPOINTS[i - 1].gap ?? 3);
+            const gapBefore = i === 0 ? 1 : (CHECKPOINTS[i - 1].gap ?? 1.2);
             return (
               <div
                 key={cp.n}
@@ -102,7 +86,7 @@ export default function RoadmapSection() {
         </div>
 
         <div className="roadmap-fog">
-          <span className="roadmap-fog-label">// UNWRITTEN</span>
+          <span className="roadmap-fog-label">// STILL CREATING</span>
         </div>
       </div>
     </section>

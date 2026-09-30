@@ -176,9 +176,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4.5 ROADMAP */}
-      <RoadmapSection />
-
       {/* 5 TOOLS */}
       <section className="tools-section">
         <div className="tools-label reveal">
@@ -241,10 +238,13 @@ export default function Home() {
       {/* 11 REVIEWS */}
       <ReviewsSection />
 
-      {/* 12 CONTACT */}
+      {/* 12 CREATIVE JOURNEY — near the end, after the work and proof */}
+      <RoadmapSection />
+
+      {/* 13 CONTACT */}
       <ContactSection />
 
-      {/* 13 FOOTER */}
+      {/* 14 FOOTER */}
       <footer className="site-footer">
         <div className="footer-top">
           <div className="footer-shuffle-wrap">

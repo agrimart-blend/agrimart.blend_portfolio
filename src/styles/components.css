@@ -110,7 +110,6 @@
 
 .roadmap-node{position:relative;padding-left:56px;margin-top:calc(var(--rm-gap,3) * clamp(2.6rem,6vw,4.6rem));
   display:flex;align-items:flex-start}
-.roadmap-node-birth{margin-top:0}
 .roadmap-node.reveal{transform:translateY(26px) translateX(0)}
 .roadmap-node-l.reveal{transform:translateY(26px) translateX(-14px)}
 .roadmap-node-r.reveal{transform:translateY(26px) translateX(14px)}
@@ -121,8 +120,6 @@
   transition:background .4s ease,border-color .4s ease,box-shadow .4s ease;z-index:2}
 .roadmap-node.visible .roadmap-dot{background:var(--accent2);border-color:var(--accent2);
   box-shadow:0 0 0 4px rgba(74,127,181,.18),0 0 16px rgba(74,127,181,.65)}
-.roadmap-dot-birth{background:var(--accent);border-color:var(--accent);
-  box-shadow:0 0 0 4px rgba(201,97,58,.18),0 0 14px rgba(201,97,58,.6)}
 .roadmap-node.visible .roadmap-dot-current{background:var(--accent);border-color:var(--accent);
   box-shadow:0 0 0 5px rgba(201,97,58,.2),0 0 22px rgba(201,97,58,.75);
   animation:roadmapPulse 1.8s ease-in-out infinite}
@@ -136,9 +133,8 @@
   border:1px solid rgba(201,97,58,.4);padding:.05rem .4rem;border-radius:3px}
 .roadmap-card-title{font-family:var(--font-disp);font-size:clamp(1.3rem,2.6vw,1.9rem);
   letter-spacing:.02em;text-transform:uppercase;color:#f7f5f0;margin-top:.3rem;line-height:1.05}
-.roadmap-card-desc{font-size:.78rem;line-height:1.6;color:rgba(247,245,240,.5);
+.roadmap-card-desc{font-size:.92rem;line-height:1.7;color:rgba(247,245,240,.68);
   margin-top:.5rem;max-width:38ch}
-.roadmap-card-date{font-family:var(--font-mono);letter-spacing:.08em;color:rgba(247,245,240,.4)}
 
 @media(min-width:900px){
   .roadmap-node{padding-left:0;justify-content:center}
@@ -148,8 +144,6 @@
   .roadmap-node-l .roadmap-card-desc{margin-left:auto}
   .roadmap-node-r{justify-content:flex-start}
   .roadmap-node-r .roadmap-card{margin-left:calc(50% + 44px);max-width:340px}
-  .roadmap-node-birth{justify-content:center;text-align:center}
-  .roadmap-node-birth .roadmap-card{max-width:280px}
   .roadmap-dot{left:50%;margin-left:-7px}
 }
 
