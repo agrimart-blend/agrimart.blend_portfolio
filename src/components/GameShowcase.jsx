@@ -32,13 +32,20 @@ export default function GameShowcase() {
           </div>
 
           <div className="game-card-body">
-            <span className="game-card-tag">1v1 Strategy &middot; Android &middot; Real-time Multiplayer</span>
+            <span className="game-card-tag">1v1 Strategy &middot; Android &middot; Nakama Online</span>
             <h3 className="game-card-title">Wallfall Barricade</h3>
             <p className="game-card-desc">
-              A tactical board game built at DOE Studio &mdash; place barricades to box in
-              your opponent while racing to reach the opposite side first. Ranked ladders,
-              party play, a bot to practice against, and a full customization shop.
+              A live 1v1 strategy game where every barricade changes the route to victory.
+              I built and run the full server on Nakama. Play people around the world, chat
+              and react in real time, add friends, or practice against a bot.
             </p>
+
+            <ul className="game-card-features" aria-label="Wallfall Barricade highlights">
+              <li>Server built by me on Nakama</li>
+              <li>Online play worldwide</li>
+              <li>Live chat + emoji reactions</li>
+              <li>Friends + bot practice</li>
+            </ul>
 
             <div className="game-card-shots">
               {SHOTS.map(src => (

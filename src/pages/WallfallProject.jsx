@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { asset } from "../lib/asset";
 
 const FEATURES = [
-  { t: "Build Barricades", d: "Place walls in real time to block your opponent's path." },
-  { t: "Outsmart Rivals",  d: "Strategy is the key — think several moves ahead of the bot or a real player." },
-  { t: "Compete & Rise",   d: "Ranked matchmaking with a live ladder to climb." },
-  { t: "Multiple Modes",   d: "Ranked, casual, private party matches, and practice vs. bot." },
-  { t: "Customize",        d: "Unlock dots, ID bars and barricade skins from the in-game shop." },
-  { t: "Social & Fair Play", d: "Friends, live chat, and a full report/block system to keep matches clean." },
+  { t: "Play worldwide", d: "Meet opponents around the world in online matches and climb the ranked ladder." },
+  { t: "Pick your match", d: "Choose ranked or casual play, invite friends to a private match, or practice against a bot." },
+  { t: "Chat in real time", d: "Send live in-game messages and emoji reactions while the match unfolds." },
+  { t: "Make friends", d: "Find and add people in game, then bring them into your next match." },
+  { t: "Make it yours", d: "Unlock player markers, ID bars and barricade styles from the customization shop." },
+  { t: "Play fair", d: "Report and block tools help players keep their matches comfortable and fair." },
 ];
 
 const SHOTS = [
@@ -38,19 +38,19 @@ export default function WallfallProject() {
         <div className="wf-hero-content">
           <span className="wf-hero-badge">DOE Studio &middot; Android &middot; Free to Play</span>
           <h1 className="wf-hero-title">Wallfall<br />Barricade</h1>
-          <p className="wf-hero-tagline">Build &middot; Block &middot; Outsmart &middot; Win</p>
+          <p className="wf-hero-tagline">Block routes. Outsmart a rival. Race to the far edge.</p>
           <div className="wf-hero-ctas">
             <a
               href="https://play.google.com/store/apps/details?id=com.agrimkaushal.wallfall"
               target="_blank" rel="noopener noreferrer" className="wf-btn wf-btn-primary"
             >
-              Get it on Google Play &#8599;
+              Get it on Google Play <span className="wf-btn-icon" aria-hidden="true">&#8599;</span>
             </a>
             <a
               href="https://agrimart-blend.github.io/kamrion-website/"
               target="_blank" rel="noopener noreferrer" className="wf-btn wf-btn-outline"
             >
-              Visit DOE Studio &#8599;
+              Visit DOE Studio <span className="wf-btn-icon" aria-hidden="true">&#8599;</span>
             </a>
           </div>
         </div>
@@ -58,10 +58,10 @@ export default function WallfallProject() {
 
       <section className="wf-meta wf-reveal">
         {[
-          ["Role", "Artist & Developer"],
-          ["Studio", "DOE Studio"],
+          ["My role", "Game & Server Developer"],
+          ["Online service", "Nakama · built by me"],
           ["Platform", "Android"],
-          ["Genre", "1v1 Tactical Strategy"],
+          ["Play", "Online 1v1 · Bot practice"],
         ].map(([k, v]) => (
           <div key={k} className="wf-meta-item">
             <span className="wf-meta-k">{k}</span>
@@ -71,26 +71,48 @@ export default function WallfallProject() {
       </section>
 
       <section className="wf-section">
-        <div className="section-label wf-reveal">Overview</div>
-        <p className="wf-overview wf-reveal">
-          Wallfall Barricade is a fast, tactical 1v1 board game: two players race across a
-          shared grid, dropping barricades to wall off the opponent while pushing toward the
-          opposite edge first. Every round comes down to reading your rival's path and cutting
-          it off before they cut off yours. It ships with ranked and casual matchmaking, private
-          party matches with in-app chat, a practice mode against an AI opponent, and a
-          full customization shop for dots, ID bars and barricade styles &mdash; alongside
-          friend lists, reporting and blocking to keep matches fair.
-        </p>
+        <div className="wf-how wf-reveal">
+          <div className="wf-how-copy">
+            <span className="wf-eyebrow">The match · 1 minute to understand</span>
+            <h2 className="wf-section-title">One board.<br />Two routes.</h2>
+            <p className="wf-overview">
+              Wallfall Barricade is a tactical 1v1 race across a shared grid. Move toward
+              your opposite edge, or place a barricade to change your rival's path. Reach
+              your goal first. Every move reshapes the board.
+            </p>
+          </div>
+          <ol className="wf-match-steps" aria-label="How a match works">
+            <li><div className="wf-step-core"><span>01</span><strong>Read the board</strong><p>Plan a route and watch for your rival's next move.</p></div></li>
+            <li><div className="wf-step-core"><span>02</span><strong>Move or block</strong><p>Advance, or place a wall to force a new path.</p></div></li>
+            <li><div className="wf-step-core"><span>03</span><strong>Reach the edge</strong><p>Outthink the other player and get across first.</p></div></li>
+          </ol>
+        </div>
       </section>
 
       <section className="wf-section">
-        <div className="section-label wf-reveal">Features</div>
+        <div className="wf-features-head wf-reveal">
+          <div>
+            <span className="wf-eyebrow">Made for live play</span>
+            <h2 className="wf-section-title">The whole match,<br />connected.</h2>
+          </div>
+          <p>I built the full server side myself and run Wallfall on Nakama, connecting strategy, friends and real-time play.</p>
+        </div>
+        <div className="wf-server-card wf-reveal">
+          <div className="wf-server-core">
+            <span className="wf-feature-n">SERVER · NAKAMA</span>
+            <h3>Built and run by me.</h3>
+            <p>The complete game server is my work, running on Nakama to power Wallfall's online matches and social features.</p>
+          </div>
+          <span className="wf-server-mark" aria-hidden="true">N</span>
+        </div>
         <div className="wf-features">
           {FEATURES.map((f, i) => (
             <div key={f.t} className={`wf-feature wf-reveal wf-reveal-d${i % 3}`}>
-              <span className="wf-feature-n">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="wf-feature-t">{f.t}</h3>
-              <p className="wf-feature-d">{f.d}</p>
+              <div className="wf-feature-core">
+                <span className="wf-feature-n">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="wf-feature-t">{f.t}</h3>
+                <p className="wf-feature-d">{f.d}</p>
+              </div>
             </div>
           ))}
         </div>
