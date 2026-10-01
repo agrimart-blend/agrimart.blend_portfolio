@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import ScrollCue from "./ScrollCue";
 
 export default function RenderGallery({ chapters }) {
   const all = chapters.flatMap(c => c.items.map(it => ({ ...it, tool: c.tool })));
@@ -38,7 +39,7 @@ export default function RenderGallery({ chapters }) {
   return (
     <div ref={rootRef} className="r3d">
       {chapters.map((c, ci) => (
-        <section key={c.tool} className="r3d-chapter">
+        <section key={c.tool} id={c.id} className="r3d-chapter">
           <header className="r3d-chapter-head">
             <span className="r3d-chapter-num">{String(ci + 1).padStart(2, "0")}</span>
             <h2 className="r3d-chapter-title">{c.tool}</h2>
@@ -67,6 +68,7 @@ export default function RenderGallery({ chapters }) {
               );
             })}
           </div>
+          {c.next && <ScrollCue href={c.next.href} eyebrow="NEXT SECTION" label={c.next.label} />}
         </section>
       ))}
 

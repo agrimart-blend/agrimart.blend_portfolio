@@ -1,10 +1,13 @@
 import RenderGallery from "../components/RenderGallery";
 import BlenderAddonWorkbench from "../components/BlenderAddonWorkbench";
+import ScrollCue from "../components/ScrollCue";
 import { asset } from "../lib/asset";
 
 const CHAPTERS = [
   {
     tool: "Blender",
+    id: "blender",
+    next: { href: "#ue5", label: "Scroll to Unreal Engine 5" },
     meta: "Cycles · Eevee · Custom shaders",
     items: [
       { src: asset("art/meteor.webp"),       title: "Meteor Night",    tag: "Anime sky · Emission",      size: "big"  },
@@ -19,6 +22,8 @@ const CHAPTERS = [
   },
   {
     tool: "Unreal Engine 5",
+    id: "ue5",
+    next: { href: "#addon-lab", label: "Scroll to shader workbench" },
     meta: "Real-time · Lumen · Foliage",
     layout: "solo",
     items: [
@@ -73,6 +78,7 @@ export default function ThreeDPage() {
             <button type="button" className="t3d-btn t3d-btn-outline" onClick={toGallery}>See the work &darr;</button>
           </div>
         </div>
+        <ScrollCue href="#blender" eyebrow="NEXT SECTION" label="Scroll to Blender work" />
       </section>
 
       <section className="t3d-stats">
@@ -90,7 +96,7 @@ export default function ThreeDPage() {
 
       <BlenderAddonWorkbench />
 
-      <section className="t3d-block t3d-game-worlds" aria-labelledby="t3d-game-worlds-title">
+      <section id="t3d-game-worlds" className="t3d-block t3d-game-worlds" aria-labelledby="t3d-game-worlds-title">
         <div className="t3d-block-head">
           <span className="section-label">Blender &rarr; Godot &middot; Mobile game</span>
           <h2 id="t3d-game-worlds-title" className="t3d-h2">Worlds built<br />for the drive</h2>
