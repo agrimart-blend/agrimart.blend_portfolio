@@ -51,7 +51,7 @@ const DISCIPLINES = [
     images:[asset("ps-valorant.jpg"),asset("ps-windmill.jpg"),asset("ps-canvas.png")] },
   { link:"#/games", text:"Games", label:"Racing · Strategy · 2D Adventure (WIP)",
     images:[asset("free-drive/promo-race-ui.webp"),asset("games/wallfall-play-with-friends.webp"),
-      asset("games/pixel-adventure-in-development.webp")] },
+      asset("games/pixel-adventure-gameplay.png")] },
 ];
 
 /* ─── Assets ─────────────────────────────────────────────── */
