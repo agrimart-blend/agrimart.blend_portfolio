@@ -16,7 +16,7 @@ const CHAPTERS = [
       { src: asset("metro.jpg"),             title: "River Crossing",  tag: "Train scene · HDRI"                      },
       { src: asset("art/donut-render.webp"), title: "Sweet Stack",     tag: "Product · Food render",     size: "wide" },
       { src: asset("art/beach.webp"),        title: "Painted Coast",   tag: "Painterly shader",          size: "tall" },
-      { src: asset("sky.jpg"),               title: "Power Line Sky",  tag: "Handpainted HDRI",          size: "tall" },
+      { src: asset("sky.jpg"),               title: "Power Line Scene", tag: "Blender 3D · Photoshop-painted sky", size: "tall" },
       { src: asset("art/gun.webp"),          title: "Plasma Blaster",  tag: "Hard-surface · Emission",   size: "wide" },
     ],
   },
@@ -43,7 +43,7 @@ const SERVICES = [
   { img: asset("art/santorini.webp"),    t: "Stylised Environments", d: "Anime and Ghibli-style scenes, taken from blockout to final render." },
   { img: asset("art/gun.webp"),          t: "Props & Hard-Surface",  d: "Hero props and game assets with clean topology and emissive detail." },
   { img: asset("art/donut-render.webp"), t: "Product Renders",       d: "Studio-lit shots that make a product look good enough to buy." },
-  { img: asset("sky.jpg"),               t: "Handpainted HDRIs",     d: "Painted skies up to 8K that light and set the mood of a whole scene." },
+  { img: asset("sky.jpg"),               t: "3D scenes with painted skies", d: "Blender-built environments finished with skies hand-painted by me in Photoshop." },
   { img: asset("art/beach.webp"),        t: "Custom Shaders",        d: "Painterly, toon and water shaders built as reusable node groups." },
   { img: asset("ue5.jpg"),               t: "Real-time in UE5",      d: "Environments lit with Lumen, ready for games and cinematics." },
 ];

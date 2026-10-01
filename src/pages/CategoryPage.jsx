@@ -82,18 +82,6 @@ export default function CategoryPage() {
         </header>
         <ArtworkStrip items={WALLFALL} className="two-d-wallfall-grid" />
         <a className="two-d-project-link" href="#/wallfall-barricade">Explore Wallfall Barricade <span aria-hidden="true">↗</span></a>
-        <ScrollCue href="#painted-sky" current="Wallfall Barricade" label="V · Scroll down for handpainted skies" />
-      </section>
-
-      <section id="painted-sky" className="two-d-section two-d-section--sky" aria-labelledby="sky-title">
-        <div className="two-d-sky-image"><img src={asset("sky.jpg")} alt="Handpainted anime-style sky and power-line landscape used as an HDRI lighting environment" loading="lazy" /></div>
-        <div className="two-d-sky-copy">
-          <span className="section-label">04 / Handpainted HDRI · Blender</span>
-          <h2 id="sky-title">A painted sky<br />that lights the scene.</h2>
-          <p>This handpainted HDRI is both a sky and a lighting environment. The portfolio already includes its finished 3D scene, showing how the painted atmosphere carries through the render.</p>
-          <a className="two-d-project-link" href="#/3d">See the 3D environments <span aria-hidden="true">↗</span></a>
-        </div>
-        <ScrollCue href="#/3d" current="Handpainted HDRI" label="V · Continue to the 3D portfolio" />
       </section>
     </main>
   );
