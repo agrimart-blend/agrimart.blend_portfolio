@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import ScrollCue from "./ScrollCue";
 
 export default function RenderGallery({ chapters }) {
   const all = chapters.flatMap(c => c.items.map(it => ({ ...it, tool: c.tool })));
@@ -68,7 +67,6 @@ export default function RenderGallery({ chapters }) {
               );
             })}
           </div>
-          {c.next && <ScrollCue href={c.next.href} current={c.tool} label={c.next.label} />}
         </section>
       ))}
 

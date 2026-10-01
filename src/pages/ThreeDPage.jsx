@@ -1,13 +1,11 @@
 import RenderGallery from "../components/RenderGallery";
 import BlenderAddonWorkbench from "../components/BlenderAddonWorkbench";
-import ScrollCue from "../components/ScrollCue";
 import { asset } from "../lib/asset";
 
 const CHAPTERS = [
   {
     tool: "Blender",
     id: "blender",
-    next: { href: "#ue5", label: "Scroll to Unreal Engine 5" },
     meta: "Cycles · Eevee · Custom shaders",
     items: [
       { src: asset("art/meteor.webp"),       title: "Meteor Night",    tag: "Anime sky · Emission",      size: "big"  },
@@ -23,7 +21,6 @@ const CHAPTERS = [
   {
     tool: "Unreal Engine 5",
     id: "ue5",
-    next: { href: "#addon-lab", label: "Scroll to shader workbench" },
     meta: "Real-time · Lumen · Foliage",
     layout: "solo",
     items: [
@@ -78,7 +75,6 @@ export default function ThreeDPage() {
             <button type="button" className="t3d-btn t3d-btn-outline" onClick={toGallery}>See the work &darr;</button>
           </div>
         </div>
-        <ScrollCue href="#blender" current="3D portfolio" label="V · Scroll down for Blender" />
       </section>
 
       <section className="t3d-stats">
@@ -117,7 +113,6 @@ export default function ThreeDPage() {
             </figure>
           ))}
         </div>
-        <ScrollCue href="#t3d-services" current="Game environments" label="V · Scroll down for 3D services" />
       </section>
 
       <section id="t3d-services" className="t3d-block">
@@ -135,7 +130,6 @@ export default function ThreeDPage() {
             </article>
           ))}
         </div>
-        <ScrollCue href="#t3d-workflow" current="3D services" label="V · Scroll down for my workflow" />
       </section>
 
       <section id="t3d-workflow" className="t3d-block">
@@ -148,7 +142,6 @@ export default function ThreeDPage() {
             <li key={p}><span>{String(i + 1).padStart(2, "0")}</span>{p}</li>
           ))}
         </ol>
-        <ScrollCue href="#t3d-contact" current="Production workflow" label="V · Scroll down to start a project" />
       </section>
 
       <section id="t3d-contact" className="t3d-cta">

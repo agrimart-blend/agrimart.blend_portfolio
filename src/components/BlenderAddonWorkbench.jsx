@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { asset } from "../lib/asset";
-import ScrollCue from "./ScrollCue";
 import "../styles/addon-workbench.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -197,11 +196,10 @@ export default function BlenderAddonWorkbench() {
               </div>
             </div>
           </div>
-          <ScrollCue href="#addon-products" current="Blender shader preview" label="V · Scroll for add-ons & Gumroad links" />
         </div>
       </div>
 
-      <div id="addon-products" className="addon-products">
+      <div id="addon-products" data-scroll-guide="Blender shader add-ons" className="addon-products">
         <div className="addon-products-head">
           <div><span className="section-label">Built to be used</span><h3>Get the tools &amp; shaders</h3></div>
           <a href="https://agrimart.gumroad.com/" target="_blank" rel="noopener noreferrer">Browse Gumroad <span aria-hidden="true">↗</span></a>
@@ -217,7 +215,6 @@ export default function BlenderAddonWorkbench() {
             </article>
           ))}
         </div>
-        <ScrollCue href="#t3d-game-worlds" current="Blender shader products" label="V · Scroll to game environments" />
       </div>
     </section>
   );

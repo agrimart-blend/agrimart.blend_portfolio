@@ -4,6 +4,7 @@ import StaggeredMenu from "./components/StaggeredMenu";
 import TopBar from "./components/TopBar/TopBar";
 import BlobCursor from "./components/BlobCursor";
 import PageReveal from "./components/PageReveal";
+import ScrollGuide from "./components/ScrollGuide";
 import Home from "./pages/Home";
 import GameShowcase from "./components/GameShowcase";
 import WallfallProject from "./pages/WallfallProject";
@@ -92,6 +93,7 @@ export default function App() {
         : route === "/3d" ? <ThreeDPage />
         : route === "/2d" ? <CategoryPage kind="2d" />
         : <Home />}
+      <ScrollGuide route={route} />
     </div>
   );
 }

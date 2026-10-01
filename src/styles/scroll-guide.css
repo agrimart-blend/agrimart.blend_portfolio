@@ -1,0 +1,58 @@
+.scroll-guide {
+  position: fixed;
+  z-index: 120;
+  right: clamp(14px, 2vw, 28px);
+  bottom: clamp(14px, 2vh, 24px);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  max-width: min(310px, calc(100vw - 28px));
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(35, 34, 31, .16);
+  border-radius: 999px;
+  color: #353430;
+  background: rgba(244, 242, 235, .91);
+  box-shadow: 0 5px 20px rgba(24, 22, 18, .12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: 550 .69rem/1.1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .025em;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.scroll-guide:hover {
+  border-color: rgba(35, 34, 31, .34);
+  background: rgba(250, 249, 245, .97);
+  transform: translateY(-2px);
+}
+
+.scroll-guide:focus-visible {
+  outline: 2px solid #353430;
+  outline-offset: 3px;
+}
+
+.scroll-guide svg {
+  flex: 0 0 11px;
+  width: 11px;
+  height: 9px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scroll-guide svg.is-up { transform: rotate(180deg); }
+.scroll-guide span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scroll-guide i { color: #77756e; font-style: normal; }
+
+@media (max-width: 600px) {
+  .scroll-guide { right: 12px; bottom: 12px; min-height: 36px; padding-inline: 12px; font-size: .63rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-guide { transition: none; }
+}

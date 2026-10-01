@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { asset } from "../lib/asset";
-import ScrollCue from "../components/ScrollCue";
 
 const PROMO_ART = [
   { src: "free-drive/promo-banner.webp", alt: "Drive Faster campaign artwork for Free Drive World", note: "Campaign key art" },
@@ -44,7 +43,6 @@ export default function FreeDriveProject() {
           <p className="fd-subtitle">Car Racing 3D</p>
           <p className="fd-status" role="status"><span />Currently in closed testing <b>&middot;</b> Public release coming soon</p>
         </div>
-        <ScrollCue href="#fd-meta" current="Free Drive World" label="V · Scroll down for game details" />
       </section>
 
       <section id="fd-meta" className="fd-meta" aria-label="Project details">
@@ -60,7 +58,6 @@ export default function FreeDriveProject() {
           </div>
         ))}
       </section>
-      <ScrollCue href="#fd-intro" current="Free Drive World details" label="V · Scroll down for the project story" />
 
       <section id="fd-intro" className="fd-intro fd-reveal">
         <div className="section-label">Project note</div>
@@ -72,7 +69,6 @@ export default function FreeDriveProject() {
             world that moves from city circuits to coasts, forests and mountain roads.
           </p>
         </div>
-        <ScrollCue href="#fd-game-art" current="Free Drive World overview" label="V · Scroll down for the game art" />
       </section>
 
       <section id="fd-game-art" className="fd-section">
@@ -89,7 +85,6 @@ export default function FreeDriveProject() {
             </figure>
           ))}
         </div>
-        <ScrollCue href="#fd-worlds" current="Campaign & interface art" label="V · Scroll down for game environments" />
       </section>
 
       <section id="fd-worlds" className="fd-section fd-world-section">
@@ -106,7 +101,6 @@ export default function FreeDriveProject() {
             </figure>
           ))}
         </div>
-        <ScrollCue href="#fd-release" current="Game environments" label="V · Scroll down for release status" />
       </section>
 
       <section id="fd-release" className="fd-release fd-reveal">

@@ -1,4 +1,3 @@
-import ScrollCue from "../components/ScrollCue";
 import { asset } from "../lib/asset";
 import "../styles/two-d-showcase.css";
 
@@ -51,7 +50,6 @@ export default function CategoryPage() {
           <h1 id="two-d-title" className="category-title">2D /<br />Image making</h1>
           <p className="t3d-pitch">Digital paintings, hand-built game art and visual ideas in progress — shown with the real work behind them.</p>
         </div>
-        <ScrollCue href="#photoshop" current="2D & visual art" label="V · Scroll down for Photoshop work" />
       </section>
 
       <section id="photoshop" className="two-d-section two-d-section--paper" aria-labelledby="photoshop-title">
@@ -61,7 +59,6 @@ export default function CategoryPage() {
           <p>Digital painting and image work made in Photoshop, shown alongside the rest of my 2D practice.</p>
         </header>
         <ArtworkStrip items={PHOTOSHOP} className="two-d-photoshop-grid" />
-        <ScrollCue href="#pixel-adventure" current="Photoshop studies" label="V · Scroll down for the Godot adventure" />
       </section>
 
       <section id="pixel-adventure" className="two-d-section two-d-section--night" aria-labelledby="adventure-title">
@@ -71,7 +68,6 @@ export default function CategoryPage() {
           <p>An original 2D adventure prototype. These are real gameplay and editor captures from development; the level, movement and encounters are still being built.</p>
         </header>
         <ArtworkStrip items={ADVENTURE} className="two-d-adventure-grid" />
-        <ScrollCue href="#wallfall-art" current="2D adventure prototype" label="V · Scroll down for Wallfall Barricade" />
       </section>
 
       <section id="wallfall-art" className="two-d-section two-d-section--warm" aria-labelledby="wallfall-art-title">

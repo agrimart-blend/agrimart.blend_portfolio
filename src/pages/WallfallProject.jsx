@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { asset } from "../lib/asset";
-import ScrollCue from "../components/ScrollCue";
 
 const FEATURES = [
   { t: "Play worldwide", d: "Meet opponents around the world in online matches and climb the ranked ladder." },
@@ -55,7 +54,6 @@ export default function WallfallProject() {
             </a>
           </div>
         </div>
-        <ScrollCue href="#wallfall-meta" current="Wallfall Barricade" label="V · Scroll down to see how it plays" />
       </section>
 
       <section id="wallfall-meta" className="wf-meta wf-reveal">
@@ -71,7 +69,6 @@ export default function WallfallProject() {
           </div>
         ))}
       </section>
-      <ScrollCue href="#wallfall-how" current="Wallfall Barricade details" label="V · Scroll down to learn the rules" />
 
       <section id="wallfall-how" className="wf-section">
         <div className="wf-how wf-reveal">
@@ -90,7 +87,6 @@ export default function WallfallProject() {
             <li><div className="wf-step-core"><span>03</span><strong>Reach the edge</strong><p>Outthink the other player and get across first.</p></div></li>
           </ol>
         </div>
-        <ScrollCue href="#wallfall-online" current="How the match works" label="V · Scroll down for online features" />
       </section>
 
       <section id="wallfall-online" className="wf-section">
@@ -120,7 +116,6 @@ export default function WallfallProject() {
             </div>
           ))}
         </div>
-        <ScrollCue href="#wallfall-screens" current="Nakama online play" label="V · Scroll down for real screenshots" />
       </section>
 
       <section id="wallfall-screens" className="wf-section">
@@ -132,7 +127,6 @@ export default function WallfallProject() {
             </div>
           ))}
         </div>
-        <ScrollCue href="#wallfall-studio" current="Wallfall screenshots" label="V · Scroll down for the studio behind it" />
       </section>
 
       <section id="wallfall-studio" className="wf-studio wf-reveal">
