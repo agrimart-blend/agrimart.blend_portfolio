@@ -68,7 +68,7 @@ export default function RenderGallery({ chapters }) {
               );
             })}
           </div>
-          {c.next && <ScrollCue href={c.next.href} eyebrow="NEXT SECTION" label={c.next.label} />}
+          {c.next && <ScrollCue href={c.next.href} current={c.tool} label={c.next.label} />}
         </section>
       ))}
 

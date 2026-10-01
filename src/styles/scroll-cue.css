@@ -1,0 +1,24 @@
+.portfolio-scroll-cue{position:relative;z-index:2;display:flex;align-items:center;gap:.8rem;width:max-content;max-width:100%;min-height:54px;color:#29251f;font-family:var(--font-mono);text-transform:uppercase;text-decoration:none;transition:color .35s cubic-bezier(.22,1,.36,1),transform .35s cubic-bezier(.22,1,.36,1)}
+.portfolio-scroll-cue:hover{color:#a95420;transform:translateY(2px)}
+.portfolio-scroll-cue:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+.portfolio-scroll-cue svg{width:32px;height:38px;overflow:visible;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;animation:cueNudge 1.8s cubic-bezier(.22,1,.36,1) infinite}
+.portfolio-scroll-cue span{display:flex;flex-direction:column;gap:.28rem}
+.portfolio-scroll-cue small{font-size:.61rem;letter-spacing:.15em;color:inherit;opacity:.72}
+.portfolio-scroll-cue strong{font-size:.8rem;letter-spacing:.075em;font-weight:650}
+@keyframes cueNudge{50%{transform:translateY(4px)}}
+.category-hero>.portfolio-scroll-cue{position:absolute;z-index:3;bottom:1.6rem;left:clamp(1.5rem,6vw,5rem)}
+.r3d-chapter>.portfolio-scroll-cue{margin:1.4rem 0 0}
+.addon-stage>.portfolio-scroll-cue{width:100%;margin:0;min-height:44px;color:#f6f3eb}
+.addon-stage>.portfolio-scroll-cue:hover{color:#ffb56e}
+.addon-products>.portfolio-scroll-cue{margin-top:1.1rem}
+.two-d-section>.portfolio-scroll-cue{margin-top:2rem}
+.games-section .portfolio-scroll-cue{margin:.3rem 0 1.5rem;color:var(--text)}
+.games-section .portfolio-scroll-cue:hover{color:var(--accent)}
+.t3d-block>.portfolio-scroll-cue{margin:2.1rem 0 0}
+.wf-hero>.portfolio-scroll-cue,.fd-hero>.portfolio-scroll-cue{position:absolute;bottom:1.6rem;left:clamp(1.25rem,5vw,4.5rem);color:#fff}
+.wf-hero>.portfolio-scroll-cue:hover,.fd-hero>.portfolio-scroll-cue:hover{color:#ffd0a8}
+.wf-section>.portfolio-scroll-cue,.wf-meta+.portfolio-scroll-cue,.fd-meta+.portfolio-scroll-cue,.fd-intro>.portfolio-scroll-cue,.fd-section>.portfolio-scroll-cue{margin:1.5rem clamp(1.25rem,5vw,4rem) 0}
+.wf-section>.portfolio-scroll-cue{color:var(--text)}
+.wf-section>.portfolio-scroll-cue:hover{color:var(--accent)}
+@media(max-width:680px){.category-hero>.portfolio-scroll-cue,.wf-hero>.portfolio-scroll-cue,.fd-hero>.portfolio-scroll-cue{left:1.1rem;bottom:1.1rem}.portfolio-scroll-cue{gap:.55rem;min-height:48px}.portfolio-scroll-cue svg{width:28px;height:34px}.portfolio-scroll-cue small{font-size:.54rem}.portfolio-scroll-cue strong{font-size:.7rem}.wf-section>.portfolio-scroll-cue,.wf-meta+.portfolio-scroll-cue,.fd-meta+.portfolio-scroll-cue,.fd-intro>.portfolio-scroll-cue,.fd-section>.portfolio-scroll-cue{margin-inline:1rem}}
+@media(prefers-reduced-motion:reduce){.portfolio-scroll-cue svg{animation:none}}

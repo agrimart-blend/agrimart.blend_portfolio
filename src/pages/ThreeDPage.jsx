@@ -78,7 +78,7 @@ export default function ThreeDPage() {
             <button type="button" className="t3d-btn t3d-btn-outline" onClick={toGallery}>See the work &darr;</button>
           </div>
         </div>
-        <ScrollCue href="#blender" eyebrow="NEXT SECTION" label="Scroll to Blender work" />
+        <ScrollCue href="#blender" current="3D portfolio" label="V · Scroll down for Blender" />
       </section>
 
       <section className="t3d-stats">
@@ -117,9 +117,10 @@ export default function ThreeDPage() {
             </figure>
           ))}
         </div>
+        <ScrollCue href="#t3d-services" current="Game environments" label="V · Scroll down for 3D services" />
       </section>
 
-      <section className="t3d-block">
+      <section id="t3d-services" className="t3d-block">
         <div className="t3d-block-head">
           <span className="section-label">Services</span>
           <h2 className="t3d-h2">What I can<br />build for you</h2>
@@ -134,9 +135,10 @@ export default function ThreeDPage() {
             </article>
           ))}
         </div>
+        <ScrollCue href="#t3d-workflow" current="3D services" label="V · Scroll down for my workflow" />
       </section>
 
-      <section className="t3d-block">
+      <section id="t3d-workflow" className="t3d-block">
         <div className="t3d-block-head">
           <span className="section-label">Workflow</span>
           <h2 className="t3d-h2">From idea<br />to final frame</h2>
@@ -146,9 +148,10 @@ export default function ThreeDPage() {
             <li key={p}><span>{String(i + 1).padStart(2, "0")}</span>{p}</li>
           ))}
         </ol>
+        <ScrollCue href="#t3d-contact" current="Production workflow" label="V · Scroll down to start a project" />
       </section>
 
-      <section className="t3d-cta">
+      <section id="t3d-contact" className="t3d-cta">
         <img className="t3d-cta-bg" src={asset("art/santorini.webp")} alt="" loading="lazy" />
         <div className="t3d-cta-inner">
           <span className="t3d-badge t3d-badge-light"><span className="t3d-badge-dot" />Taking new projects</span>

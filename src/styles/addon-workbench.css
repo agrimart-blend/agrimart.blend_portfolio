@@ -1,12 +1,12 @@
 .addon-lab{margin:0;background:#ebe8e1;padding:0 0 6rem}
 .addon-stage-track{position:relative}
-.addon-stage{height:100dvh;min-height:680px;box-sizing:border-box;padding:clamp(1.3rem,3.5vh,2.7rem) clamp(1.2rem,5vw,5rem) 1.3rem;background:#ebe8e1;display:flex;flex-direction:column;gap:1rem;overflow:hidden;transform-origin:center center;will-change:transform,opacity}
-.addon-lab-head{width:min(100%,1500px);margin:0 auto;flex:none;display:grid;grid-template-columns:1fr;gap:.4rem}
-.addon-lab-head .section-label{margin:0;font-size:.58rem}
-.addon-lab-head .t3d-h2{max-width:1000px;margin:.1rem 0 0;font-size:clamp(2.1rem,4.2vw,3.7rem);line-height:.96;letter-spacing:-.015em}
-.addon-lab-intro{max-width:70ch;margin:.25rem 0 0;color:#514d47;font-size:.82rem;line-height:1.5}
-.addon-lab-intro strong{color:#1b1917}
-.addon-workbench{width:min(100%,1500px);min-height:0;flex:1;margin:0 auto;display:grid;grid-template-columns:minmax(330px,.72fr) minmax(0,1.5fr);background:#202225;border:1px solid #101113;box-shadow:0 18px 55px rgba(34,31,25,.18);padding:7px;gap:7px;color:#e9e9e8;overflow:hidden}
+.addon-stage{width:100%;height:100dvh;min-height:680px;box-sizing:border-box;padding:clamp(1rem,2vh,1.65rem) clamp(1rem,2.2vw,2.25rem) .8rem;background:#202225;display:flex;flex-direction:column;gap:.85rem;overflow:hidden;transform-origin:center center;will-change:transform,opacity}
+.addon-lab-head{width:100%;margin:0;flex:none;display:grid;grid-template-columns:minmax(230px,.85fr) minmax(260px,1.2fr) minmax(220px,.8fr);align-items:end;gap:clamp(.8rem,2vw,2rem);color:#f3f0e9}
+.addon-lab-head .section-label{margin:0;font-size:.58rem;color:#e7a56e;grid-column:1/-1}
+.addon-lab-head .t3d-h2{max-width:700px;margin:.05rem 0 0;font-size:clamp(1.9rem,3.4vw,3.2rem);line-height:.96;letter-spacing:-.015em;color:#f5f1e9}
+.addon-lab-intro{max-width:42ch;margin:0 0 .18rem;color:#c3c2be;font-size:.83rem;line-height:1.55}
+.addon-lab-intro strong{color:#fff}
+.addon-workbench{width:100%;min-height:0;flex:1;margin:0;display:grid;grid-template-columns:minmax(330px,.72fr) minmax(0,1.5fr);background:#202225;border:1px solid #45474a;box-shadow:0 18px 55px rgba(0,0,0,.24);padding:7px;gap:7px;color:#e9e9e8;overflow:hidden}
 .addon-panel{display:flex;flex-direction:column;background:#2d2f32;border:1px solid #3a3c40;min-width:0}
 .addon-panel-top{height:56px;display:flex;align-items:center;gap:.65rem;padding:0 1rem;background:#242629;border-bottom:1px solid #17181a}
 .addon-blender-mark{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;font-size:1.15rem;color:#171819;background:#f28b32;border:3px solid #f9c775;box-shadow:0 0 0 2px #395768}
@@ -49,17 +49,6 @@
 .addon-viewport-caption h3{margin:.25rem 0;font-family:var(--font-disp);font-size:1.55rem;letter-spacing:.035em;text-transform:uppercase;color:#f4f0e9;line-height:1}
 .addon-viewport-caption p{margin:0;color:#a5a5a2;font-size:.66rem;line-height:1.5}
 .addon-render-index{flex:none;font-family:var(--font-mono);font-size:.62rem;color:#c5c3bd}.addon-render-index i{color:#858580;font-style:normal}
-.addon-stage>.portfolio-scroll-cue{width:min(100%,1500px);margin:0 auto 0 0;min-height:32px;flex:none}
-.portfolio-scroll-cue{display:flex;align-items:center;gap:.65rem;width:max-content;min-height:44px;color:#27231e;font-family:var(--font-mono);text-transform:uppercase;transition:color .2s,transform .2s}
-.portfolio-scroll-cue:hover{color:#a95420;transform:translateY(2px)}
-.portfolio-scroll-cue svg{width:22px;height:29px;overflow:visible;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none;animation:cueNudge 1.7s ease-in-out infinite}
-.portfolio-scroll-cue span{display:flex;flex-direction:column;gap:.15rem}
-.portfolio-scroll-cue small{font-size:.54rem;letter-spacing:.15em;color:#69635b}
-.portfolio-scroll-cue strong{font-size:.68rem;letter-spacing:.1em;font-weight:600}
-@keyframes cueNudge{50%{transform:translateY(3px)}}
-.category-hero>.portfolio-scroll-cue{position:absolute;z-index:3;bottom:1.6rem;left:clamp(1.5rem,6vw,5rem)}
-.r3d-chapter>.portfolio-scroll-cue{margin:1.2rem auto 0 0}
-.addon-products>.portfolio-scroll-cue{margin-top:1.1rem}
 .addon-products{max-width:1500px;margin:0 auto;padding:4.2rem clamp(1.5rem,5vw,5rem) 1.5rem}
 .addon-products-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin:0 0 1.4rem}
 .addon-products-head h3{margin:.55rem 0 0;font-family:var(--font-disp);font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:.02em;text-transform:uppercase;color:#211e1a}

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { asset } from "../lib/asset";
+import ScrollCue from "./ScrollCue";
 
 const SHOTS = ["wallfall/shot-1.webp", "wallfall/shot-3.webp", "wallfall/shot-4.webp"].map(asset);
 
@@ -22,10 +23,12 @@ export default function GameShowcase() {
   return (
     <section id="games" className="games-section">
       <div className="games-inner">
-        <div className="section-label reveal">Featured Project</div>
+        <div className="section-label reveal">Playable worlds · made by Agrimart</div>
         <h2 className="section-title reveal">Games &amp;<br />Interactive</h2>
+        <p className="games-intro reveal">Three projects, each with a different kind of play — online strategy, open-road driving, and a pixel-art adventure in development.</p>
+        <ScrollCue href="#game-wallfall" current="Games portfolio" label="V · Scroll down for Wallfall Barricade" />
 
-        <div className="game-card reveal">
+        <div id="game-wallfall" className="game-card reveal">
           <div className="game-card-media">
             <img src={asset("wallfall/hero.webp")} alt="Wallfall Barricade key art" loading="lazy" />
             <div className="game-card-media-fade" />
@@ -69,8 +72,9 @@ export default function GameShowcase() {
             </div>
           </div>
         </div>
+        <ScrollCue href="#game-driving" current="Wallfall Barricade" label="V · Scroll down for Free Drive World" />
 
-        <div className="game-card game-card--racing reveal">
+        <div id="game-driving" className="game-card game-card--racing reveal">
           <div className="game-card-media">
             <img src={asset("free-drive/promo-race-ui.webp")} alt="Race interface concept showing a race in progress and mobile driving controls" loading="lazy" />
             <div className="game-card-media-fade" />
@@ -99,6 +103,36 @@ export default function GameShowcase() {
               <span className="game-btn game-btn-status" role="status">Coming soon</span>
             </div>
           </div>
+        </div>
+        <ScrollCue href="#game-adventure" current="Free Drive World" label="V · Scroll down for my 2D adventure" />
+
+        <div id="game-adventure" className="game-card game-card--adventure reveal">
+          <div className="game-card-media adventure-screenshot-grid">
+            <img className="adventure-screenshot-main" src={asset("games/pixel-adventure-bridge.png")} alt="Pixel-art adventure gameplay in a village beside a stone bridge" loading="lazy" />
+            <img src={asset("games/pixel-adventure-platform.png")} alt="The player character on a platform in a bright pixel-art landscape" loading="lazy" />
+            <img src={asset("games/pixel-adventure-castle.png")} alt="Pixel-art castle level with a fire hazard" loading="lazy" />
+            <span className="game-card-image-caption">Real game captures · Godot development</span>
+          </div>
+          <div className="game-card-body">
+            <span className="game-card-tag">2D Adventure &middot; Pixel Art &middot; In Development</span>
+            <h3 className="game-card-title">Pixel Adventure<br />Prototype</h3>
+            <p className="game-card-desc">An original 2D adventure taking shape in Godot. Explore hand-built pixel-art places, move through platforming routes and discover what is waiting beyond each level. The screenshots show the actual game and current development work.</p>
+            <ul className="game-card-features" aria-label="2D adventure highlights">
+              <li>Original pixel-art worlds</li>
+              <li>2D platforming</li>
+              <li>Built in Godot</li>
+              <li>Currently in development</li>
+            </ul>
+            <div className="game-card-ctas">
+              <a href="#/2d" className="game-btn game-btn-primary">See real captures &rarr;</a>
+              <span className="game-btn game-btn-status" role="status">In development</span>
+            </div>
+          </div>
+        </div>
+        <ScrollCue href="#games-next" current="Pixel Adventure Prototype" label="V · Explore the 2D art page" />
+        <div id="games-next" className="games-next-project reveal">
+          <span className="section-label">Also in the portfolio</span>
+          <a href="#/2d">Explore 2D art, game captures &amp; painted skies <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

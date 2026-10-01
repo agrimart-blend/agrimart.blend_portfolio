@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { asset } from "../lib/asset";
+import ScrollCue from "../components/ScrollCue";
 
 const FEATURES = [
   { t: "Play worldwide", d: "Meet opponents around the world in online matches and climb the ranked ladder." },
@@ -54,9 +55,10 @@ export default function WallfallProject() {
             </a>
           </div>
         </div>
+        <ScrollCue href="#wallfall-meta" current="Wallfall Barricade" label="V · Scroll down to see how it plays" />
       </section>
 
-      <section className="wf-meta wf-reveal">
+      <section id="wallfall-meta" className="wf-meta wf-reveal">
         {[
           ["My role", "Game & Server Developer"],
           ["Online service", "Nakama · built by me"],
@@ -69,8 +71,9 @@ export default function WallfallProject() {
           </div>
         ))}
       </section>
+      <ScrollCue href="#wallfall-how" current="Wallfall Barricade details" label="V · Scroll down to learn the rules" />
 
-      <section className="wf-section">
+      <section id="wallfall-how" className="wf-section">
         <div className="wf-how wf-reveal">
           <div className="wf-how-copy">
             <span className="wf-eyebrow">The match · 1 minute to understand</span>
@@ -87,9 +90,10 @@ export default function WallfallProject() {
             <li><div className="wf-step-core"><span>03</span><strong>Reach the edge</strong><p>Outthink the other player and get across first.</p></div></li>
           </ol>
         </div>
+        <ScrollCue href="#wallfall-online" current="How the match works" label="V · Scroll down for online features" />
       </section>
 
-      <section className="wf-section">
+      <section id="wallfall-online" className="wf-section">
         <div className="wf-features-head wf-reveal">
           <div>
             <span className="wf-eyebrow">Made for live play</span>
@@ -116,9 +120,10 @@ export default function WallfallProject() {
             </div>
           ))}
         </div>
+        <ScrollCue href="#wallfall-screens" current="Nakama online play" label="V · Scroll down for real screenshots" />
       </section>
 
-      <section className="wf-section">
+      <section id="wallfall-screens" className="wf-section">
         <div className="section-label wf-reveal">Screenshots</div>
         <div className="wf-gallery">
           {SHOTS.map((s, i) => (
@@ -127,9 +132,10 @@ export default function WallfallProject() {
             </div>
           ))}
         </div>
+        <ScrollCue href="#wallfall-studio" current="Wallfall screenshots" label="V · Scroll down for the studio behind it" />
       </section>
 
-      <section className="wf-studio wf-reveal">
+      <section id="wallfall-studio" className="wf-studio wf-reveal">
         <img src={asset("wallfall/doe-logo.webp")} alt="DOE Studio logo" className="wf-studio-logo" />
         <div className="wf-studio-body">
           <h3 className="wf-studio-title">Made at DOE Studio</h3>

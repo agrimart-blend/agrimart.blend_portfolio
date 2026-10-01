@@ -46,7 +46,7 @@ const PRODUCTS = [
     type: "Blender add-on · paid",
     description: "A painterly shader workflow built for expressive, stylised renders.",
     image: "addons/arcane-with-light.jpg",
-    link: "https://agrimart.gumroad.com/l/arcane",
+    link: "https://agrimart.gumroad.com/l/paint",
     featured: true,
   },
   {
@@ -81,7 +81,7 @@ const PRODUCTS = [
 
 const OPTIONS = [
   { id: "basic", label: "Original", sub: "No add-on" },
-  { id: "arcane", label: "Arcane Shader", sub: "Painterly material", link: "https://agrimart.gumroad.com/l/arcane", cta: "Get now" },
+  { id: "arcane", label: "Arcane Shader", sub: "Painterly material", link: "https://agrimart.gumroad.com/l/paint", cta: "Get now" },
   { id: "edge", label: "Edge Glow", sub: "Luminous contours", link: "https://agrimart.gumroad.com/l/edge_glow", cta: "Get now" },
   { id: "combined", label: "Arcane + Edge Glow", sub: "Combined effect", link: "https://agrimart.gumroad.com/", cta: "Get both" },
 ];
@@ -197,7 +197,7 @@ export default function BlenderAddonWorkbench() {
               </div>
             </div>
           </div>
-          <ScrollCue href="#addon-products" eyebrow="NEXT SECTION" label="Scroll for more shaders" />
+          <ScrollCue href="#addon-products" current="Blender shader preview" label="V · Scroll for add-ons & Gumroad links" />
         </div>
       </div>
 
@@ -217,7 +217,7 @@ export default function BlenderAddonWorkbench() {
             </article>
           ))}
         </div>
-        <ScrollCue href="#t3d-game-worlds" eyebrow="NEXT SECTION" label="Scroll to game environments" />
+        <ScrollCue href="#t3d-game-worlds" current="Blender shader products" label="V · Scroll to game environments" />
       </div>
     </section>
   );
