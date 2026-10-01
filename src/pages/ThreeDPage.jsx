@@ -1,4 +1,5 @@
 import RenderGallery from "../components/RenderGallery";
+import BlenderAddonWorkbench from "../components/BlenderAddonWorkbench";
 import { asset } from "../lib/asset";
 
 const CHAPTERS = [
@@ -86,6 +87,8 @@ export default function ThreeDPage() {
       <div id="renders">
         <RenderGallery chapters={CHAPTERS} />
       </div>
+
+      <BlenderAddonWorkbench />
 
       <section className="t3d-block t3d-game-worlds" aria-labelledby="t3d-game-worlds-title">
         <div className="t3d-block-head">
