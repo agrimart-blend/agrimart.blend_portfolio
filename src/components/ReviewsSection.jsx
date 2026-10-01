@@ -1,30 +1,31 @@
-const REVIEWS = [
-  { text:"Now this is quality shader work. Exactly what I needed for my anime scene — the water reacts beautifully to the lighting.", author:"Gumroad Customer", product:"Anime Fountain Shader", stars:5 },
-  { text:"Such a great shader and thanks a lot for providing it for free for all. ❤️ The community really appreciates this generosity.", author:"Blender Artist", product:"Waterfall Shader", stars:5 },
-  { text:"Awesome work!!! The level of detail in these HDRIs is incredible. Completely transformed my entire project's lighting.", author:"3D Creator", product:"Vibrant HDRIs Pack", stars:5 },
-  { text:"The HDRIs really fit over my project, thank you for making my work easier and better. ❤️ The anime lighting quality is unmatched.", author:"Verified Buyer", product:"Anime Sky HDRI", stars:5 },
-  { text:"Incredible scene pack — saved me days of modelling. The train bridge environment is exactly the kind of asset every Blender artist needs.", author:"Environment Artist", product:"River Crossing Scene", stars:5 },
-  { text:"Clean node setup, great docs, stunning renders. This is how free assets should be done. Thank you!", author:"Blender Community", product:"Wood Shader Pack", stars:5 },
-];
-
 export default function ReviewsSection() {
   return (
-    <section id="reviews" className="reviews-section">
+    <section id="reviews" className="reviews-section" aria-labelledby="reviews-title">
       <div className="reviews-inner">
-        <div className="section-label reveal">Community Feedback</div>
-        <h2 className="section-title reveal">What Artists<br />Are Saying</h2>
-        <div className="reviews-grid">
-          {REVIEWS.map((r,i) => (
-            <div key={i} className={`review-card reveal reveal-d${i%3}`}>
-              <div className="review-geo" aria-hidden="true" />
-              <div className="review-stars" aria-label={`${r.stars} stars`}>{"★".repeat(r.stars)}</div>
-              <blockquote className="review-text">"{r.text}"</blockquote>
-              <div className="review-footer">
-                <span className="review-author">— {r.author}</span>
-                <span className="review-product">{r.product}</span>
-              </div>
-            </div>
-          ))}
+        <header className="reviews-heading">
+          <div className="section-label">Gumroad storefront</div>
+          <h2 id="reviews-title" className="section-title">Real work.<br />Verified feedback.</h2>
+          <p>
+            See what buyers say about the tools and artwork, directly on the storefront.
+          </p>
+        </header>
+
+        <div className="reviews-proof" aria-label="Gumroad review summary">
+          <div className="reviews-metric">
+            <strong>5.0<span>/5</span></strong>
+            <span>Store rating</span>
+          </div>
+          <div className="reviews-metric">
+            <strong>20</strong>
+            <span>Verified reviews</span>
+          </div>
+          <div className="reviews-metric">
+            <strong>10</strong>
+            <span>Products reviewed</span>
+          </div>
+          <a className="reviews-link" href="https://agrimart.gumroad.com/" target="_blank" rel="noopener noreferrer">
+            Read verified reviews on Gumroad <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>

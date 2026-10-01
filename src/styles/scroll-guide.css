@@ -1,30 +1,30 @@
 .scroll-guide {
   position: fixed;
-  z-index: 120;
-  right: clamp(14px, 2vw, 28px);
-  bottom: clamp(14px, 2vh, 24px);
+  z-index: 100000;
+  right: clamp(16px, 2.4vw, 34px);
+  bottom: clamp(18px, 3vh, 32px);
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  max-width: min(310px, calc(100vw - 28px));
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid rgba(35, 34, 31, .16);
-  border-radius: 999px;
-  color: #353430;
-  background: rgba(244, 242, 235, .91);
-  box-shadow: 0 5px 20px rgba(24, 22, 18, .12);
+  gap: 8px;
+  max-width: min(240px, calc(100vw - 32px));
+  min-height: 42px;
+  padding: 7px 11px 7px 10px;
+  border: 1px solid rgba(45, 45, 43, .12);
+  border-radius: 4px;
+  color: #3e3d39;
+  background: rgba(247, 245, 240, .88);
+  box-shadow: 0 8px 28px rgba(24, 22, 18, .12);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  font: 550 .69rem/1.1 var(--font-mono, ui-monospace, monospace);
-  letter-spacing: .025em;
+  font: 500 .66rem/1.15 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .015em;
   text-align: left;
   cursor: pointer;
   transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
 }
 
 .scroll-guide:hover {
-  border-color: rgba(35, 34, 31, .34);
+  border-color: rgba(45, 45, 43, .28);
   background: rgba(250, 249, 245, .97);
   transform: translateY(-2px);
 }
@@ -35,22 +35,39 @@
 }
 
 .scroll-guide svg {
-  flex: 0 0 11px;
-  width: 11px;
-  height: 9px;
+  flex: 0 0 13px;
+  width: 13px;
+  height: 10px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.7;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .scroll-guide svg.is-up { transform: rotate(180deg); }
-.scroll-guide span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.scroll-guide i { color: #77756e; font-style: normal; }
+.scroll-guide-copy { min-width: 0; display: grid; gap: 3px; text-align: left; }
+.scroll-guide-copy small {
+  color: #77756e;
+  font-size: .49rem;
+  letter-spacing: .14em;
+  line-height: 1;
+}
+.scroll-guide-copy strong {
+  overflow: hidden;
+  color: #34332f;
+  font-size: .72rem;
+  font-weight: 600;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 
 @media (max-width: 600px) {
-  .scroll-guide { right: 12px; bottom: 12px; min-height: 36px; padding-inline: 12px; font-size: .63rem; }
+  .scroll-guide { right: 10px; bottom: 12px; min-height: 38px; max-width: min(190px, calc(100vw - 20px)); padding: 6px 9px; }
+  .scroll-guide-copy small { font-size: .45rem; }
+  .scroll-guide-copy strong { font-size: .66rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,74 +1,33 @@
-import { useState, useEffect } from "react";
 import DomeGallery from "./DomeGallery";
-import ShuffleText from "./ShuffleText";
 import { asset } from "../lib/asset";
 
-/*
- * Put your shader images in  public/shaders/
- * Named:  shader1.jpg  shader2.jpg  shader3.jpg …
- * They will be auto-discovered up to shader30.jpg
- */
-
-const FALLBACK_IMAGES = [
-  { src: asset("sky.jpg"),        alt: "Anime Sky HDRI" },
-  { src: asset("metro.jpg"),      alt: "Anime Train Scene" },
-  { src: asset("room.jpg"),       alt: "Anime Room Interior" },
-  { src: asset("ue5.jpg"),        alt: "UE5 Landscape" },
-  { src: asset("ps-windmill.jpg"),alt: "Digital Art – Windmill" },
-  { src: asset("ps-valorant.jpg"),alt: "Digital Art – Valorant" },
-  { src: "https://public-files.gumroad.com/d34rqd01nd7lrbb2mvuk23p33s83", alt: "Fountain Shader" },
-  { src: "https://public-files.gumroad.com/t1elcqn3ws9ca5iqv2n7cdqhek3b", alt: "Waterfall Shader" },
-  { src: "https://public-files.gumroad.com/ogz7z3yv44usot34y1aef21tc7kq", alt: "Wood Shader" },
-  { src: "https://public-files.gumroad.com/7l26a9autehk7o69n9v9rcdjcmvj", alt: "Anime HDRI" },
-  { src: "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd", alt: "HDRI Pack" },
+const SHADER_VARIANTS = [
+  { src: asset("addons/blender-basic.jpg"), alt: "Blender model before adding a shader" },
+  { src: asset("addons/arcane-no-light.jpg"), alt: "Arcane Shader applied to the Blender model" },
+  { src: asset("addons/edge-glow.jpg"), alt: "Edge Glow applied to the Blender model" },
+  { src: asset("addons/arcane-edge-glow.jpg"), alt: "Arcane Shader combined with Edge Glow" },
+  { src: asset("addons/arcane-with-light.jpg"), alt: "Arcane Shader with its lighting option enabled" },
 ];
 
 export default function ShadersSection() {
-  const [images, setImages] = useState(FALLBACK_IMAGES);
-
-  /* Auto-discover shader1.jpg … shader30.jpg from public/shaders/ */
-  useEffect(() => {
-    let found = [];
-    let pending = 30;
-    const done = () => {
-      pending--;
-      if (pending === 0) {
-        if (found.length > 0) setImages([...found, ...FALLBACK_IMAGES]);
-      }
-    };
-    for (let i = 1; i <= 30; i++) {
-      const src = asset(`shaders/shader${i}.jpg`);
-      const img = new Image();
-      img.onload  = () => { found.push({ src, alt: `Shader ${i}` }); done(); };
-      img.onerror = () => done();
-      img.src = src;
-    }
-  }, []);
-
   return (
-    <section id="shaders" className="shaders-section">
-      <div className="shaders-header reveal">
-        <div className="section-label">Shaders &amp; Stylization</div>
-        <ShuffleText
-          tag="h2"
-          text="SHADERS"
-          className="section-title shaders-title"
-          triggerOnHover
-          autoPlay={false}
-        />
+    <section id="shaders" className="shaders-section" aria-labelledby="shaders-title">
+      <header className="shaders-header reveal">
+        <div className="section-label">Blender shader studies</div>
+        <h2 id="shaders-title" className="section-title shaders-title">Five finishes.<br />One model.</h2>
         <p className="shaders-desc">
-          Drag to rotate · Click to enlarge · All shaders made in Blender 3D
+          Drag to compare the original model, Arcane Shader, Edge Glow and their combined looks.
         </p>
-      </div>
+      </header>
 
       <div className="shaders-dome-wrap reveal">
         <div className="shaders-dome">
           <DomeGallery
-            images={images}
+            images={SHADER_VARIANTS}
             fit={0.68}
-            minRadius={560}
-            maxRadius={820}
-            padFactor={0.32}
+            minRadius={380}
+            maxRadius={680}
+            padFactor={0.3}
             dragDampening={3.4}
             segments={28}
             maxVerticalRotationDeg={14}
@@ -79,29 +38,34 @@ export default function ShadersSection() {
             openedImageWidth="480px"
             openedImageHeight="320px"
             autoRotate
-            autoRotateSpeed={5}
+            autoRotateSpeed={4}
           />
 
-          <div className="dome-scan" />
-          <div className="dome-corner dome-corner-tl" />
-          <div className="dome-corner dome-corner-tr" />
-          <div className="dome-corner dome-corner-bl" />
-          <div className="dome-corner dome-corner-br" />
-          <div className="dome-hud dome-hud-tl">
-            <span className="dome-hud-dot" />
-            LIVE · SEG-28
-          </div>
-          <div className="dome-hud dome-hud-tr">R 560–820</div>
-          <div className="dome-hud dome-hud-bl">DRAG // ROTATE</div>
-          <div className="dome-hud dome-hud-br">DOME.SYS_01</div>
+          <div className="dome-scan" aria-hidden="true" />
+          <div className="dome-corner dome-corner-tl" aria-hidden="true" />
+          <div className="dome-corner dome-corner-tr" aria-hidden="true" />
+          <div className="dome-corner dome-corner-bl" aria-hidden="true" />
+          <div className="dome-corner dome-corner-br" aria-hidden="true" />
+          <div className="dome-hud dome-hud-tl"><span className="dome-hud-dot" />FIVE TEST RENDERS</div>
+          <div className="dome-hud dome-hud-bl">DRAG TO COMPARE</div>
+          <div className="dome-hud dome-hud-br">BLENDER · AGRIMART</div>
         </div>
       </div>
 
-      <div className="shaders-note reveal">
-        <span>
-          Add your own images to <code>public/shaders/shader1.jpg</code> …
-          they'll appear automatically.
-        </span>
+      <div className="shader-products">
+        <div className="shader-products-copy">
+          <span className="section-label">Try the shaders yourself</span>
+          <p>Open the Blender workbench for a closer look, or get a shader from Gumroad.</p>
+        </div>
+        <div className="shader-product-actions">
+          <a className="shader-product-link shader-product-link-primary" href="https://agrimart.gumroad.com/l/paint" target="_blank" rel="noopener noreferrer">
+            Get Arcane Shader <span aria-hidden="true">↗</span>
+          </a>
+          <a className="shader-product-link" href="https://agrimart.gumroad.com/l/edge_glow" target="_blank" rel="noopener noreferrer">
+            Get Edge Glow · Free <span aria-hidden="true">↗</span>
+          </a>
+          <a className="shader-workbench-link" href="#/3d">Explore the interactive Blender workbench <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
   );

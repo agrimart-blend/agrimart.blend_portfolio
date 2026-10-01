@@ -43,14 +43,6 @@ export default function ContactSection() {
               <p className="contact-art-text">Let's create<br />something<br />remarkable</p>
             </div>
           </div>
-          <div className="contact-stats">
-            {[{n:"50+",l:"Assets Released"},{n:"★5.0",l:"Avg Rating"},{n:"UE5",l:"Tech Stack"}].map(s => (
-              <div key={s.n} className="contact-stat">
-                <span className="contact-stat-n">{s.n}</span>
-                <span className="contact-stat-l">{s.l}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

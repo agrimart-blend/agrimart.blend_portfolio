@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/scroll-guide.css";
 
 const clean = (value) => (value || "").replace(/\s+/g, " ").trim();
+const visibleText = (element) => element?.innerText || element?.textContent || "";
 
 function getLabel(element) {
   if (element.dataset.scrollGuide) return clean(element.dataset.scrollGuide);
@@ -9,7 +10,7 @@ function getLabel(element) {
   const labelledBy = element.getAttribute("aria-labelledby");
   if (labelledBy) {
     const label = labelledBy.split(/\s+/)
-      .map((id) => document.getElementById(id)?.textContent)
+      .map((id) => visibleText(document.getElementById(id)))
       .filter(Boolean)
       .join(" ");
     if (label) return clean(label);
@@ -18,10 +19,10 @@ function getLabel(element) {
   if (element.getAttribute("aria-label")) return clean(element.getAttribute("aria-label"));
 
   const heading = element.querySelector("h1, h2, h3");
-  if (heading?.textContent) return clean(heading.textContent);
+  if (visibleText(heading)) return clean(visibleText(heading));
 
   const eyebrow = element.querySelector(".section-label, .wf-eyebrow, .fd-kicker");
-  if (eyebrow?.textContent) return clean(eyebrow.textContent);
+  if (visibleText(eyebrow)) return clean(visibleText(eyebrow));
 
   return element.tagName === "FOOTER" ? "Portfolio footer" : "Next section";
 }
@@ -58,7 +59,6 @@ export default function ScrollGuide({ route }) {
       const guideLine = Math.round(window.innerHeight * 0.44);
       const guideBand = Math.max(1, window.innerHeight - guideLine - 1);
       observer = new IntersectionObserver(() => {
-        const guideLine = window.innerHeight * 0.44;
         let current = 0;
         nextSteps.forEach((step, index) => {
           if (step.element.getBoundingClientRect().top <= guideLine) current = index;
@@ -67,7 +67,6 @@ export default function ScrollGuide({ route }) {
       }, { rootMargin: `-${guideLine}px 0px -${guideBand}px 0px`, threshold: 0 });
       nextSteps.forEach(({ element }) => observer.observe(element));
 
-      const guideLine = window.innerHeight * 0.44;
       let current = 0;
       nextSteps.forEach((step, index) => {
         if (step.element.getBoundingClientRect().top <= guideLine) current = index;
@@ -112,7 +111,10 @@ export default function ScrollGuide({ route }) {
       <svg className={atEnd ? "is-up" : ""} viewBox="0 0 12 9" aria-hidden="true">
         <path d="m1.5 1.5 4.5 5 4.5-5" />
       </svg>
-      <span>{atEnd ? "Back to top" : <>Below <i aria-hidden="true">·</i> {label}</>}</span>
+      <span className="scroll-guide-copy">
+        <small>{atEnd ? "PAGE START" : "WHAT'S BELOW"}</small>
+        <strong>{atEnd ? "Back to top" : label}</strong>
+      </span>
     </button>
   );
 }

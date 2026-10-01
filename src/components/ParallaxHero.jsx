@@ -35,29 +35,19 @@ export default function ParallaxHero() {
       <div className="hero-content" ref={txtRef}>
         <div className="hero-badge">
           <span className="hero-badge-dot" />
-          <span>3D Artist · Blender · UE5 · Photoshop</span>
+          <span>3D artist · Blender shaders · games</span>
         </div>
         <h1 className="hero-title">
           <span className="hero-title-line-1">AGRIMART</span>
           <span className="hero-title-line-2">.BLEND</span>
         </h1>
-        <p className="hero-subtitle">Handpainted HDRIs · Anime Environments · Digital Assets</p>
+        <p className="hero-subtitle">Stylised 3D worlds · hand-painted skies · playable games</p>
         <div className="hero-ctas">
           <a href="#disciplines" className="hero-btn hero-btn-primary">View Work</a>
-          <a href="https://agrimart.gumroad.com/" target="_blank" rel="noopener"
-             className="hero-btn hero-btn-outline">Browse Store ↗</a>
+          <a href="https://agrimart.gumroad.com/l/paint" target="_blank" rel="noopener noreferrer"
+             className="hero-btn hero-btn-outline">Get Arcane Shader ↗</a>
         </div>
       </div>
-
-      <div className="hero-scroll-indicator">
-        <div className="scroll-dot" />
-        <div className="scroll-track"><div className="scroll-track-fill" /></div>
-        <span style={{ fontSize:".55rem", letterSpacing:".2em", color:"var(--muted)", marginTop:".3rem" }}>
-          SCROLL
-        </span>
-      </div>
-      <div className="hero-corner hero-corner-bl">AGRIM KAUSHAL — 2026</div>
-      <div className="hero-corner hero-corner-br">BLENDER · UE5 · ART</div>
     </section>
   );
 }

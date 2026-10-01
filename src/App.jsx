@@ -17,7 +17,7 @@ const menuItems = [
   { label: "Home",    ariaLabel: "Go to home",       link: "#hero"                 },
   { label: "Work",    ariaLabel: "View work",        link: "#disciplines"          },
   { label: "Games",   ariaLabel: "View game projects", link: "#/games" },
-  { label: "Assets",  ariaLabel: "Browse assets",    link: "#assets"               },
+  { label: "Shaders", ariaLabel: "Explore Blender shaders", link: "#shaders"        },
   { label: "Patreon", ariaLabel: "Membership",       link: "#patreon"              },
   { label: "Connect", ariaLabel: "Get in touch",     link: "#contact"              },
 ];
@@ -31,7 +31,7 @@ const socialItems = [
 /* Lightweight hash-based route so this stays a single static bundle that
    works on any static host (GitHub Pages included) with no server rewrites.
    Routes are hashes starting with "/" (e.g. "#/wallfall-barricade") so they
-   never collide with the in-page anchor links ("#hero", "#assets", ...). */
+   never collide with the in-page anchor links ("#hero", "#shaders", ...). */
 function readRoute() {
   return window.location.hash.startsWith("#/") ? window.location.hash.slice(1) : "/";
 }

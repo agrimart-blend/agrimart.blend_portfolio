@@ -45,7 +45,7 @@ export default function FreeDriveProject() {
         </div>
       </section>
 
-      <section id="fd-meta" className="fd-meta" aria-label="Project details">
+      <section id="fd-meta" className="fd-meta" aria-label="Project details" data-scroll-guide="Game details">
         {[
           ["Platform", "Mobile · Android"],
           ["Engine", "Godot"],
