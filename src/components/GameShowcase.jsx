@@ -125,7 +125,7 @@ export default function GameShowcase() {
             </div>
           </div>
         </div>
-        <div id="games-next" data-scroll-guide="Blender scenes & game captures" className="games-next-project reveal">
+        <div id="games-next" data-scroll-guide="Artwork archive" className="games-next-project reveal">
           <span className="section-label">Also in the portfolio</span>
           <a href="#/2d">Explore Blender scenes, game captures &amp; painted skies <span aria-hidden="true">↗</span></a>
         </div>
