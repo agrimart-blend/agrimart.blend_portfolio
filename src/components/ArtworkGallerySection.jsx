@@ -29,8 +29,8 @@ export default function ArtworkGallerySection() {
           <h2 id="selected-work-title" className="section-title selected-work-title">Scenes, props<br />&amp; playable worlds.</h2>
         </div>
         <p className="selected-work-desc">
-          Fourteen environments, props and real game captures lead the collection, with two
-          Substance Designer material studies. Drag to explore; click a piece to enlarge it.
+          Scenes, props, hand-painted sky composites and real captures from my games, made across
+          Blender, Photoshop, Unreal Engine and Godot. Drag to browse; click any piece to enlarge it.
         </p>
       </header>
 

@@ -23,15 +23,21 @@ const HeroFrames = forwardRef(function HeroFrames({ className }, forwardedRef) {
 
   useEffect(() => {
     let cancelled = false;
-    let loaded = 0;
+    let settled = 0;
     const imgs = PATHS.map((src, i) => {
       const img = new Image();
       img.decoding = "async";
       img.src = src;
-      img.onload = img.onerror = () => {
-        loaded++;
-        if (loaded === 1) draw(0);
-        if (loaded >= TOTAL && !cancelled) stateRef.current.ready = true;
+      img.onload = () => {
+        settled++;
+        // The browser may finish other frames before frame 0. Draw the poster
+        // as soon as its own image is ready instead of racing the first load.
+        if (i === 0) draw(0);
+        if (settled >= TOTAL && !cancelled) stateRef.current.ready = true;
+      };
+      img.onerror = () => {
+        settled++;
+        if (settled >= TOTAL && !cancelled) stateRef.current.ready = true;
       };
       return img;
     });
@@ -56,6 +62,7 @@ const HeroFrames = forwardRef(function HeroFrames({ className }, forwardedRef) {
       const w = img.naturalWidth * sc, h = img.naturalHeight * sc;
       ctx.clearRect(0, 0, W, H);
       ctx.drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
+      canvas.classList.add("is-ready");
     }
 
     function tick(t) {

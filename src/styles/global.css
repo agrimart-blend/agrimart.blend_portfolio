@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=Noto+Serif+JP:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=Noto+Serif+JP:wght@300;400;700&display=swap');
 
 :root {
   --bg:        #f7f5f0;
@@ -15,6 +15,7 @@
   --accent-ink:#98472c;
   --font-disp: 'Bebas Neue', cursive;
   --font-mono: 'Space Mono', monospace;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
   --font-jp:   'Noto Serif JP', serif;
 
   /* ── Shared coordinates for the TopBar's inner grey-line corner box, so
@@ -37,7 +38,7 @@
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html, body { overflow-x: clip; }        /* clip not hidden — keeps sticky working */
 html,body,#root { min-height:100%; }
-body { background:var(--bg); color:var(--text); font-family:var(--font-mono);
+body { background:var(--bg); color:var(--text); font-family:var(--font-body);
   -webkit-font-smoothing:antialiased; cursor:none; overflow-x:clip; }
 a  { color:inherit; text-decoration:none; }
 img{ display:block; max-width:100%; }

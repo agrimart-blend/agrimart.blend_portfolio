@@ -156,6 +156,9 @@ export default function Home() {
       {/* 6 MATERIAL ARTWORK — interactive studies with tool-specific cursors */}
       <AccordionGallery />
 
+      {/* Buyer proof follows the first substantial body of portfolio work. */}
+      <ReviewsSection />
+
       {/* 7 SCROLL FRAME ANIMATION */}
       <ScrollFrameCanvas />
 
@@ -164,9 +167,6 @@ export default function Home() {
 
       {/* 8 SELECTED ARTWORKS + PRODUCT LINKS */}
       <ArtworkGallerySection />
-
-      {/* Store proof follows the work and its product links. */}
-      <ReviewsSection />
 
       {/* Optional studio support stays below the main portfolio and shop proof. */}
       <PatreonSection />

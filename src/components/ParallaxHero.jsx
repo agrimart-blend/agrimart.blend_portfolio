@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import HeroFrames from "./HeroFrames";
+import { asset } from "../lib/asset";
 
 export default function ParallaxHero() {
   const bgRef   = useRef(null);
@@ -18,6 +19,7 @@ export default function ParallaxHero() {
   return (
     <section id="hero" className="hero" data-scroll-guide="Portfolio introduction">
       <div className="hero-bg-wrap">
+        <img className="hero-bg-poster" src={asset("hero-frames/f000.webp")} alt="" fetchPriority="high" />
         <HeroFrames ref={bgRef} className="hero-bg-img" />
         <div className="hero-bg-gradient" />
       </div>
@@ -42,6 +44,9 @@ export default function ParallaxHero() {
           <span className="hero-title-line-2">.BLEND</span>
         </h1>
         <p className="hero-subtitle">Stylised 3D worlds · hand-painted skies · playable games</p>
+        <a href="#contact" className="hero-availability">
+          Open for commissions <span aria-hidden="true">↗</span>
+        </a>
         <div className="hero-ctas">
           <a href="#disciplines" className="hero-btn hero-btn-primary">View Work</a>
           <a href="https://agrimart.gumroad.com/l/paint" target="_blank" rel="noopener noreferrer"
