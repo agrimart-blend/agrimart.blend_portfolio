@@ -2,22 +2,22 @@ import DomeGallery from "./DomeGallery";
 import { asset } from "../lib/asset";
 
 const ARTWORKS = [
-  { src: "art/meteor.webp", title: "Meteor Night", tool: "Blender 3D", alt: "Japanese village under falling stars, made in Blender" },
-  { src: "art/santorini.webp", title: "Santorini Café", tool: "Blender 3D", alt: "Stylised Mediterranean café environment made in Blender" },
   { src: "room.jpg", title: "Tatami Room", tool: "Blender 3D", alt: "Anime-inspired Japanese interior made in Blender" },
   { src: "metro.jpg", title: "River Crossing", tool: "Blender 3D", alt: "Train crossing a river in a stylised Blender environment" },
   { src: "art/donut-render.webp", title: "Sweet Stack", tool: "Blender 3D", alt: "Stylised product food render made in Blender" },
   { src: "art/beach.webp", title: "Painted Coast", tool: "Blender 3D", alt: "Painterly coastal environment rendered in Blender" },
-  { src: "ps-valorant.jpg", title: "Windmill Landscape", tool: "Blender + Photoshop", alt: "Blender-made windmill scene with a sky hand-painted in Photoshop" },
-  { src: "ps-windmill.jpg", title: "Valorant Weapon Study", tool: "Blender + Photoshop", alt: "3D weapon study finished as a Photoshop composite" },
-  { src: "sky.jpg", title: "Power Line Scene", tool: "Blender + Photoshop", alt: "Power-line environment built in Blender with a hand-painted Photoshop sky" },
   { src: "art/gun.webp", title: "Plasma Blaster", tool: "Blender 3D", alt: "Emissive hard-surface prop modelled and rendered in Blender" },
-  { src: "ue5.jpg", title: "Stylised Landscape", tool: "Unreal Engine 5", alt: "Real-time stylised landscape built in Unreal Engine 5" },
-  { src: "free-drive/coastal-sunset.webp", title: "Coastal World", tool: "Blender + Godot", alt: "Coastal environment created for Free Drive World" },
-  { src: "games/pixel-adventure-village.png", title: "Pixel Adventure", tool: "Godot · in development", alt: "Village screenshot from a pixel-art adventure in development" },
-  { src: "wallfall/hero.webp", title: "Wallfall Barricade", tool: "Godot + Nakama", alt: "Key art for the online strategy game Wallfall Barricade" },
-  { src: "artworks/wall-plaster.webp", title: "Wall Plaster", tool: "Substance Designer", alt: "Stylised plaster wall material made in Substance Designer" },
-  { src: "artworks/anime-grass.webp", title: "Anime Grass", tool: "Substance Designer", alt: "Anime-style grass material made in Substance Designer" },
+  { src: "ue5-new.jpg", title: "Meadow Study", tool: "Unreal Engine 5", alt: "Soft, painterly meadow environment built in Unreal Engine 5" },
+  { src: "free-drive/coastal-sunset.webp", title: "Coastal Sunset", tool: "Blender + Godot", alt: "Sunset coast environment made in Blender for Free Drive World" },
+  { src: "free-drive/city-loop-dusk.webp", title: "City Loop at Dusk", tool: "Blender + Godot", alt: "Elevated city circuit environment used in Free Drive World" },
+  { src: "free-drive/river-bridge.webp", title: "River Bridge", tool: "Blender + Godot", alt: "Road bridge and river environment used in Free Drive World" },
+  { src: "free-drive/alpine-road.webp", title: "Alpine Pass", tool: "Blender + Godot", alt: "Mountain road through a snowy alpine environment" },
+  { src: "games/pixel-adventure-platform.png", title: "First Route", tool: "Godot · in development", alt: "Platforming route from a pixel-art adventure in development" },
+  { src: "games/pixel-adventure-castle.png", title: "Castle Encounter", tool: "Godot · in development", alt: "Castle and fire hazard from a pixel-art adventure in development" },
+  { src: "games/pixel-adventure-bridge.png", title: "Bridge to the Village", tool: "Godot · in development", alt: "Bridge and village from a pixel-art adventure in development" },
+  { src: "wallfall/shot-2.webp", title: "Wallfall · Match View", tool: "Godot + Nakama", alt: "Gameplay screenshot from Wallfall Barricade" },
+  { src: "wallfall/shot-3.webp", title: "Wallfall · Online Play", tool: "Godot + Nakama", alt: "Online match screenshot from Wallfall Barricade" },
+  { src: "wallfall/shot-4.webp", title: "Wallfall · Tactics", tool: "Godot + Nakama", alt: "Strategy gameplay screenshot from Wallfall Barricade" },
 ].map((work) => ({ ...work, src: asset(work.src) }));
 
 export default function ArtworkGallerySection() {
@@ -25,12 +25,12 @@ export default function ArtworkGallerySection() {
     <section id="selected-work" className="selected-work-section" aria-labelledby="selected-work-title" data-scroll-guide="Selected artworks">
       <header className="selected-work-header reveal">
         <div>
-          <div className="section-label">Artwork portfolio · 16 selected pieces</div>
+          <div className="section-label">Artwork archive · 16 selected pieces</div>
           <h2 id="selected-work-title" className="section-title selected-work-title">Scenes, props<br />&amp; playable worlds.</h2>
         </div>
         <p className="selected-work-desc">
-          Scenes, props, hand-painted sky composites and real captures from my games, made across
-          Blender, Photoshop, Unreal Engine and Godot. Drag to browse; click any piece to enlarge it.
+          Blender renders, real-time environments and real game captures from finished work and
+          projects still taking shape. Drag to browse; click any piece to enlarge it.
         </p>
       </header>
 
@@ -59,7 +59,7 @@ export default function ArtworkGallerySection() {
           <div className="dome-corner dome-corner-tr" aria-hidden="true" />
           <div className="dome-corner dome-corner-bl" aria-hidden="true" />
           <div className="dome-corner dome-corner-br" aria-hidden="true" />
-          <div className="dome-hud dome-hud-tl"><span className="dome-hud-dot" />16 WORKS · 6 TOOLS</div>
+          <div className="dome-hud dome-hud-tl"><span className="dome-hud-dot" />16 WORKS · 3 APPS</div>
           <div className="dome-hud dome-hud-bl">DRAG TO EXPLORE · CLICK TO ENLARGE</div>
           <div className="dome-hud dome-hud-br">AGRIMART.BLEND</div>
         </div>

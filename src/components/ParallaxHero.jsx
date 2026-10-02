@@ -43,7 +43,7 @@ export default function ParallaxHero() {
           <span className="hero-title-line-1">AGRIMART</span>
           <span className="hero-title-line-2">.BLEND</span>
         </h1>
-        <p className="hero-subtitle">Stylised 3D worlds · hand-painted skies · playable games</p>
+        <p className="hero-subtitle">3D worlds · hand-painted skies · games</p>
         <a href="#contact" className="hero-availability">
           Open for commissions <span aria-hidden="true">↗</span>
         </a>
