@@ -38,7 +38,7 @@ export default function RenderGallery({ chapters }) {
   return (
     <div ref={rootRef} className="r3d">
       {chapters.map((c, ci) => (
-        <section key={c.tool} id={c.id} className="r3d-chapter">
+        <section key={c.tool} id={c.id} className="r3d-chapter" data-scroll-guide={`${c.tool} renders`}>
           <header className="r3d-chapter-head">
             <span className="r3d-chapter-num">{String(ci + 1).padStart(2, "0")}</span>
             <h2 className="r3d-chapter-title">{c.tool}</h2>

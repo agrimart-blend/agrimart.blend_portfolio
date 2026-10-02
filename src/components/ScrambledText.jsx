@@ -17,10 +17,25 @@ export default function ScrambledText({
     if (!p) return;
 
     const original = p.textContent;
-    // Split into char spans
-    p.innerHTML = original.split("").map((c, i) =>
-      `<span data-c="${c}" style="display:inline-block">${c}</span>`
-    ).join("");
+    // Animate letters individually, while leaving whitespace as real text nodes.
+    // Wrapping spaces in inline-block spans makes browsers collapse them, joining words.
+    const fragment = document.createDocumentFragment();
+    original.split(/(\s+)/).forEach((part) => {
+      if (!part) return;
+      if (/^\s+$/.test(part)) {
+        fragment.append(document.createTextNode(part));
+        return;
+      }
+      Array.from(part).forEach((character) => {
+        const span = document.createElement("span");
+        span.dataset.c = character;
+        // Keep letters inline so the browser wraps at spaces, not mid-word.
+        span.style.display = "inline";
+        span.textContent = character;
+        fragment.append(span);
+      });
+    });
+    p.replaceChildren(fragment);
 
     const spans = Array.from(p.querySelectorAll("span"));
     const active = new Map();

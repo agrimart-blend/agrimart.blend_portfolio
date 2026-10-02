@@ -10,7 +10,7 @@ const LINKS = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="contact-section" data-scroll-guide="Contact Agrimart">
       <div className="contact-inner">
         <div className="contact-left">
           <div className="section-label reveal">Get In Touch</div>

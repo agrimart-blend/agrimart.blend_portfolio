@@ -16,7 +16,7 @@ export default function ParallaxHero() {
   }, []);
 
   return (
-    <section id="hero" className="hero">
+    <section id="hero" className="hero" data-scroll-guide="Portfolio introduction">
       <div className="hero-bg-wrap">
         <HeroFrames ref={bgRef} className="hero-bg-img" />
         <div className="hero-bg-gradient" />
@@ -35,7 +35,7 @@ export default function ParallaxHero() {
       <div className="hero-content" ref={txtRef}>
         <div className="hero-badge">
           <span className="hero-badge-dot" />
-          <span>3D artist · Blender shaders · games</span>
+          <span>3D artist · stylised worlds · games</span>
         </div>
         <h1 className="hero-title">
           <span className="hero-title-line-1">AGRIMART</span>

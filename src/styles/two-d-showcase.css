@@ -1,7 +1,8 @@
 .two-d-page{--two-d-ink:#201d18;background:#eeeae2;color:var(--two-d-ink)}
-.two-d-hero.category-hero--art{min-height:min(100svh,980px);background:#d9d1c3}
+.two-d-hero.category-hero--art{min-height:min(100svh,980px);padding:clamp(1.5rem,4vh,3rem) clamp(1.5rem,5vw,4rem);background:#d9d1c3}
 .two-d-hero .category-hero-art{width:70%;opacity:.8;object-position:center 44%;mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
-.two-d-hero .category-hero-inner{padding-top:9rem;padding-bottom:8rem}
+.two-d-hero .category-hero-inner{padding-top:5.5rem;padding-bottom:1rem}
+.two-d-hero .category-title{font-size:clamp(3.5rem,11vw,8rem);line-height:.84}
 .two-d-hero .category-back{color:#29251f}
 .two-d-hero .t3d-pitch{max-width:560px;color:#37332c;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7}
 .two-d-section{position:relative;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem,6vw,6rem) clamp(6rem,10vw,9rem);scroll-margin-top:1rem}
@@ -43,5 +44,5 @@
 .games-next-project>a{font-family:var(--font-disp);font-size:clamp(1.65rem,3.3vw,2.6rem);line-height:1;text-transform:uppercase}
 .games-next-project>a span{display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;margin-left:.4rem;border:1px solid currentColor;border-radius:50%;font-family:var(--font-mono);font-size:.56em}
 @media(max-width:850px){.two-d-art-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.adventure-screenshot-grid{min-height:350px}}
-@media(max-width:650px){.two-d-hero .category-hero-art{width:100%;opacity:.45;mask-image:linear-gradient(0deg,#000 5%,transparent 96%)}.two-d-hero .category-hero-inner{padding-top:7rem;padding-bottom:9rem}.two-d-section{padding:4rem 1rem 5.5rem}.two-d-heading h2{font-size:clamp(3rem,15vw,4.5rem)}.two-d-art-grid,.two-d-adventure-grid{grid-template-columns:1fr}.two-d-adventure-grid .two-d-art,.two-d-adventure-grid .two-d-art:first-child,.two-d-adventure-grid .two-d-art:nth-child(2){grid-column:auto}.two-d-adventure-grid .two-d-art:first-child .two-d-art-image,.two-d-adventure-grid .two-d-art:nth-child(2) .two-d-art-image{aspect-ratio:4/3}.two-d-art-image{aspect-ratio:4/3}.adventure-screenshot-grid{min-height:270px}.game-card--adventure .game-card-media{min-height:270px}.games-intro{font-size:.9rem}}
+@media(max-width:650px){.two-d-hero .category-hero-art{width:100%;opacity:.45;mask-image:linear-gradient(0deg,#000 5%,transparent 96%)}.two-d-hero .category-hero-inner{padding-top:6rem;padding-bottom:.5rem}.two-d-hero .category-title{font-size:clamp(3.2rem,14vw,5.5rem)}.two-d-section{padding:4rem 1rem 5.5rem}.two-d-heading h2{font-size:clamp(3rem,15vw,4.5rem)}.two-d-art-grid,.two-d-adventure-grid{grid-template-columns:1fr}.two-d-adventure-grid .two-d-art,.two-d-adventure-grid .two-d-art:first-child,.two-d-adventure-grid .two-d-art:nth-child(2){grid-column:auto}.two-d-adventure-grid .two-d-art:first-child .two-d-art-image,.two-d-adventure-grid .two-d-art:nth-child(2) .two-d-art-image{aspect-ratio:4/3}.two-d-art-image{aspect-ratio:4/3}.adventure-screenshot-grid{min-height:270px}.game-card--adventure .game-card-media{min-height:270px}.games-intro{font-size:.9rem}}
 @media(max-width:390px){.adventure-screenshot-grid{min-height:225px}}

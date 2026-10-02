@@ -34,7 +34,7 @@ export default function FreeDriveProject() {
     <main className="free-drive-page">
       <a href="#/games" className="wf-back">&larr; Back to Games</a>
 
-      <section className="fd-hero">
+      <section className="fd-hero" data-scroll-guide="Free Drive World">
         <img className="fd-hero-image" src={asset("free-drive/lighthouse-island.webp")} alt="" />
         <div className="fd-hero-shade" />
         <div className="fd-hero-content">
@@ -59,7 +59,7 @@ export default function FreeDriveProject() {
         ))}
       </section>
 
-      <section id="fd-intro" className="fd-intro fd-reveal">
+      <section id="fd-intro" className="fd-intro fd-reveal" data-scroll-guide="Project overview">
         <div className="section-label">Project note</div>
         <div>
           <h2>Built as a world to drive through.</h2>
@@ -71,7 +71,7 @@ export default function FreeDriveProject() {
         </div>
       </section>
 
-      <section id="fd-game-art" className="fd-section">
+      <section id="fd-game-art" className="fd-section" data-scroll-guide="Campaign art">
         <div className="fd-section-head fd-reveal">
           <span className="section-label">Game art &amp; interface</span>
           <h2>From the campaign<br />to the cockpit</h2>
@@ -87,7 +87,7 @@ export default function FreeDriveProject() {
         </div>
       </section>
 
-      <section id="fd-worlds" className="fd-section fd-world-section">
+      <section id="fd-worlds" className="fd-section fd-world-section" data-scroll-guide="World environments">
         <div className="fd-section-head fd-reveal">
           <span className="section-label">Environment art &middot; Blender to Godot</span>
           <h2>Ten views.<br />One open road.</h2>
@@ -103,7 +103,7 @@ export default function FreeDriveProject() {
         </div>
       </section>
 
-      <section id="fd-release" className="fd-release fd-reveal">
+      <section id="fd-release" className="fd-release fd-reveal" data-scroll-guide="Release status">
         <span className="section-label">Release status</span>
         <h2>In closed testing.<br />Coming soon.</h2>
         <p>Public release follows closed testing.</p>

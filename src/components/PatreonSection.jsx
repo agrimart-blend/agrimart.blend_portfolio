@@ -3,7 +3,7 @@ import { asset } from "../lib/asset";
 
 export default function PatreonSection() {
   return (
-    <section id="patreon" className="patreon-section">
+    <section id="patreon" className="patreon-section" data-scroll-guide="Membership">
       <div className="patreon-inner">
 
         {/* Geometric accent */}

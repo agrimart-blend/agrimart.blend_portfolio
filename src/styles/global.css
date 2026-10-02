@@ -11,7 +11,8 @@
   --accent2:   #4a7fb5;
   --text:      #1a1512;
   --text2:     #3d3730;
-  --muted:     #8a837c;
+  --muted:     #69645d;
+  --accent-ink:#98472c;
   --font-disp: 'Bebas Neue', cursive;
   --font-mono: 'Space Mono', monospace;
   --font-jp:   'Noto Serif JP', serif;
@@ -161,8 +162,8 @@ body.loading-screen-active,body.loading-screen-active *{cursor:none!important}
 
 /* ── Shared labels ── */
 .section-label{display:flex;align-items:center;gap:.8rem;font-size:.62rem;
-  letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
-.section-label::before{content:'';width:28px;height:1px;background:var(--accent);flex-shrink:0}
+  letter-spacing:.3em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.8rem}
+.section-label::before{content:'';width:28px;height:1px;background:var(--accent-ink);flex-shrink:0}
 .section-title{font-family:var(--font-disp);font-size:clamp(2.5rem,6vw,5rem);
   line-height:.92;letter-spacing:.04em;text-transform:uppercase;
   color:var(--text);margin-bottom:3rem}

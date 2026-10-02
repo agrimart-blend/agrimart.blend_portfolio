@@ -23,27 +23,21 @@ export default function LoadingScreen({ finishLoading }) {
   );
 
   useEffect(() => {
-
+    let finishTimer;
     const interval = setInterval(() => {
-
       setProgress((prev) => {
-
-        const next = prev + Math.random() * 3;
-
-        if (next >= 100) {
+        const next = Math.min(100, prev + 8);
+        if (next === 100) {
           clearInterval(interval);
-          setTimeout(() => finishLoading(), 500);
-          return 100;
+          finishTimer = window.setTimeout(finishLoading, 160);
         }
-
         return next;
-
       });
-
-    }, 60);
-
-    return () => clearInterval(interval);
-
+    }, 40);
+    return () => {
+      clearInterval(interval);
+      window.clearTimeout(finishTimer);
+    };
   }, [finishLoading]);
 
   useEffect(() => {

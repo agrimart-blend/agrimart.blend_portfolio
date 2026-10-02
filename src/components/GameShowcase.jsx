@@ -20,7 +20,7 @@ export default function GameShowcase() {
   }, []);
 
   return (
-    <section id="games" className="games-section">
+    <section id="games" className="games-section" data-scroll-guide="Games">
       <div className="games-inner">
         <div className="section-label reveal">Playable worlds · made by Agrimart</div>
         <h2 className="section-title reveal">Games &amp;<br />Interactive</h2>
@@ -102,7 +102,7 @@ export default function GameShowcase() {
           </div>
         </div>
 
-        <div id="game-adventure" data-scroll-guide="Pixel Adventure Prototype" className="game-card game-card--adventure reveal">
+        <div id="game-adventure" data-scroll-guide="Pixel Adventure" className="game-card game-card--adventure reveal">
           <div className="game-card-media adventure-screenshot-grid">
             <img className="adventure-screenshot-main" src={asset("games/pixel-adventure-bridge.png")} alt="Pixel-art adventure gameplay in a village beside a stone bridge" loading="lazy" />
             <img src={asset("games/pixel-adventure-platform.png")} alt="The player character on a platform in a bright pixel-art landscape" loading="lazy" />
@@ -125,9 +125,9 @@ export default function GameShowcase() {
             </div>
           </div>
         </div>
-        <div id="games-next" data-scroll-guide="Explore 2D art" className="games-next-project reveal">
+        <div id="games-next" data-scroll-guide="Blender scenes & game captures" className="games-next-project reveal">
           <span className="section-label">Also in the portfolio</span>
-          <a href="#/2d">Explore 2D art, game captures &amp; painted skies <span aria-hidden="true">↗</span></a>
+          <a href="#/2d">Explore Blender scenes, game captures &amp; painted skies <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

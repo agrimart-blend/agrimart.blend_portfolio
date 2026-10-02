@@ -1,14 +1,13 @@
 import { useEffect }        from "react";
 import ParallaxHero         from "../components/ParallaxHero";
 import ScrollFrameCanvas    from "../components/ScrollFrameCanvas";
-import CreativePracticeSection from "../components/CreativePracticeSection";
 import GameShowcase         from "../components/GameShowcase";
 import FlowingMenu          from "../components/FlowingMenu";
 import LogoLoop             from "../components/LogoLoop";
 import PatreonSection       from "../components/PatreonSection";
 import ReviewsSection       from "../components/ReviewsSection";
 import ContactSection       from "../components/ContactSection";
-import ShadersSection       from "../components/ShadersSection";
+import ArtworkGallerySection from "../components/ArtworkGallerySection";
 import AccordionGallery    from "../components/AccordionGallery";
 import ShuffleText          from "../components/ShuffleText";
 import ScrambledText        from "../components/ScrambledText";
@@ -20,6 +19,7 @@ const TOOLS = [
   ["Unreal Engine 5", "cursor-unreal.svg"],
   ["Photoshop", "cursor-photoshop.svg"],
   ["Substance Designer", "cursor-substance-designer.svg"],
+  ["Substance Painter", "cursor-substance-painter.svg"],
   ["Godot", "cursor-godot.svg"],
 ].map(([name, icon]) => ({
   title: name,
@@ -40,8 +40,8 @@ const DISCIPLINES = [
       "https://public-files.gumroad.com/so1e0yc8zewomv4iey3pp91f73dd"] },
   { link:"#/3d", text:"Unreal Engine 5", label:"Real-time · Environments",
     images:[asset("ue5.jpg")] },
-  { link:"#/2d", text:"Photoshop Art", label:"Digital · Illustration",
-    images:[asset("ps-valorant.jpg"),asset("ps-windmill.jpg"),asset("ps-canvas.png")] },
+  { link:"#/2d", text:"Blender + Photoshop", label:"Painted skies · 3D composites",
+    images:[asset("ps-valorant.jpg"),asset("ps-windmill.jpg"),asset("sky.jpg")] },
   { link:"#/games", text:"Games", label:"Racing · Strategy · 2D Adventure (WIP)",
     images:[asset("free-drive/promo-race-ui.webp"),asset("games/wallfall-play-with-friends.webp"),
       asset("games/pixel-adventure-gameplay.png")] },
@@ -61,12 +61,21 @@ export default function Home() {
   /* lenis smooth scroll */
   useEffect(() => {
     let lenis;
+    let rafId = 0;
     import("lenis").then(({ default: Lenis }) => {
       lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 0.85 });
-      const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
-      requestAnimationFrame(raf);
+      const raf = t => {
+        if (!lenis) return;
+        lenis.raf(t);
+        rafId = requestAnimationFrame(raf);
+      };
+      rafId = requestAnimationFrame(raf);
     }).catch(() => {});
-    return () => lenis?.destroy();
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis?.destroy();
+      lenis = null;
+    };
   }, []);
 
   return (
@@ -89,7 +98,7 @@ export default function Home() {
       </div>
 
       {/* 4 DISCIPLINES */}
-      <section id="disciplines" className="disciplines-section">
+      <section id="disciplines" className="disciplines-section" data-scroll-guide="Work categories">
         <div className="disciplines-header reveal">
           <div className="section-label">Disciplines</div>
           <h2 className="section-title" style={{ marginBottom:0 }}>Work<br/>Categories</h2>
@@ -107,7 +116,7 @@ export default function Home() {
       </section>
 
       {/* 4 ABOUT */}
-      <section id="about" className="about-section">
+      <section id="about" className="about-section" data-scroll-guide="About Agrim">
         <div className="about-inner">
           <div className="about-left reveal">
             <div className="about-name-geo">
@@ -128,7 +137,7 @@ export default function Home() {
             </ScrambledText>
             <div className="skills-grid reveal reveal-d3">
               {["Blender environments","Hand-painted skies","Blender shader tools",
-                "Unreal Engine 5","Godot games","Photoshop art","Substance Designer"].map(s => (
+                "Unreal Engine 5","Godot games","Photoshop art","Substance Designer","Substance Painter"].map(s => (
                 <span key={s} className="skill-tag">{s}</span>
               ))}
             </div>
@@ -137,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* 5 TOOLS */}
-      <section className="tools-section">
+      <section className="tools-section" data-scroll-guide="Software tools">
         <div className="tools-label reveal">
           <div className="section-label">Software</div>
         </div>
@@ -153,23 +162,20 @@ export default function Home() {
       {/* 7.5 GAMES SHOWCASE */}
       <GameShowcase />
 
-      {/* 8 SHADERS SECTION */}
-      <ShadersSection />
+      {/* 8 SELECTED ARTWORKS + PRODUCT LINKS */}
+      <ArtworkGallerySection />
 
-      {/* 10 PATREON */}
-      <PatreonSection />
-
-      {/* 11 REVIEWS */}
+      {/* Store proof follows the work and its product links. */}
       <ReviewsSection />
 
-      {/* 12 CREATIVE PRACTICE */}
-      <CreativePracticeSection />
+      {/* Optional studio support stays below the main portfolio and shop proof. */}
+      <PatreonSection />
 
       {/* 13 CONTACT */}
       <ContactSection />
 
       {/* 14 FOOTER */}
-      <footer className="site-footer">
+      <footer className="site-footer" data-scroll-guide="Portfolio footer">
         <div className="footer-top">
           <div className="footer-shuffle-wrap">
             <span>I AM A&nbsp;</span>

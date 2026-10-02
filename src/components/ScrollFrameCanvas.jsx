@@ -186,6 +186,7 @@ export default function ScrollFrameCanvas() {
     <section
       ref={sectionRef}
       id="scroll-animation"
+      data-scroll-guide="UE5 world preview"
       style={{ position: "relative", height: "320vh", background: "transparent" }}
     >
       <div

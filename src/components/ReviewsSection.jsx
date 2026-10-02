@@ -1,6 +1,6 @@
 export default function ReviewsSection() {
   return (
-    <section id="reviews" className="reviews-section" aria-labelledby="reviews-title">
+    <section id="reviews" className="reviews-section" aria-labelledby="reviews-title" data-scroll-guide="Gumroad reviews">
       <div className="reviews-inner">
         <header className="reviews-heading">
           <div className="section-label">Gumroad storefront</div>

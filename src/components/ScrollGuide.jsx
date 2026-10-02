@@ -43,6 +43,9 @@ export default function ScrollGuide({ route }) {
         ...page.querySelectorAll("section, footer, [data-scroll-guide]")
       ]
         .filter((element) => {
+          // Keep the 3D chapter cue focused on the Blender/UE5 work itself;
+          // the stats ribbon belongs to the hero and should not consume a step.
+          if (element.classList.contains("t3d-stats")) return false;
           if (element.matches("section, footer")) {
             return Boolean(element.dataset.scrollGuide || element.getAttribute("aria-label") || element.querySelector("h1, h2, h3, .section-label, .wf-eyebrow, .fd-kicker"));
           }
@@ -94,6 +97,19 @@ export default function ScrollGuide({ route }) {
 
   const goToNext = () => {
     if (destination) {
+      const workbenchTrack = destination.element.querySelector(".addon-stage-track");
+      const workbenchPinsOnDesktop = workbenchTrack && window.matchMedia(
+        "(min-width: 1001px) and (min-height: 540px) and (prefers-reduced-motion: no-preference)"
+      ).matches;
+
+      if (workbenchPinsOnDesktop) {
+        // Let the workbench animate in while travelling, then stop once it is
+        // fully open and in its pinned hold instead of at its dim first frame.
+        const top = workbenchTrack.getBoundingClientRect().top + window.scrollY + 440;
+        window.scrollTo({ top, behavior: "smooth" });
+        return;
+      }
+
       destination.element.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -105,15 +121,15 @@ export default function ScrollGuide({ route }) {
       className="scroll-guide"
       type="button"
       onClick={goToNext}
-      aria-label={atEnd ? "End of page. Scroll back to top" : `Scroll to next section: ${label}`}
+      aria-label={atEnd ? "Back to the start of the page" : `Scroll down to ${label}`}
       title={atEnd ? "Back to top" : `Next: ${label}`}
     >
       <svg className={atEnd ? "is-up" : ""} viewBox="0 0 12 9" aria-hidden="true">
         <path d="m1.5 1.5 4.5 5 4.5-5" />
       </svg>
-      <span className="scroll-guide-copy">
-        <small>{atEnd ? "PAGE START" : "WHAT'S BELOW"}</small>
-        <strong>{atEnd ? "Back to top" : label}</strong>
+      <span className="scroll-guide-copy" aria-live="polite" aria-atomic="true">
+        <span className="scroll-guide-kicker">{atEnd ? "Return to start" : "Scroll down"}</span>
+        <span className="scroll-guide-label">{atEnd ? "Back to top" : label}</span>
       </span>
     </button>
   );

@@ -1,75 +1,118 @@
 .scroll-guide {
   position: fixed;
   z-index: 100000;
-  right: clamp(16px, 2.4vw, 34px);
-  bottom: clamp(18px, 3vh, 32px);
-  display: inline-flex;
+  right: clamp(16px, 2.4vw, 32px);
+  bottom: clamp(18px, 3vh, 28px);
+  display: inline-grid;
+  grid-template-columns: 12px minmax(0, 1fr);
   align-items: center;
-  gap: 8px;
-  max-width: min(240px, calc(100vw - 32px));
-  min-height: 42px;
-  padding: 7px 11px 7px 10px;
-  border: 1px solid rgba(45, 45, 43, .12);
-  border-radius: 4px;
-  color: #3e3d39;
-  background: rgba(247, 245, 240, .88);
-  box-shadow: 0 8px 28px rgba(24, 22, 18, .12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font: 500 .66rem/1.15 var(--font-mono, ui-monospace, monospace);
-  letter-spacing: .015em;
+  gap: 10px;
+  width: max-content;
+  max-width: min(290px, calc(100vw - 32px));
+  padding: 10px 14px 10px 12px;
+  border: 1px solid rgba(47, 44, 40, .22);
+  border-radius: 2px;
+  color: #37342f;
+  background: rgba(247, 245, 240, .96);
+  box-shadow: 0 8px 28px rgba(31, 27, 22, .14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-mono, ui-monospace, monospace);
   text-align: left;
   cursor: pointer;
-  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .28s cubic-bezier(.22, 1, .36, 1),
+              box-shadow .28s cubic-bezier(.22, 1, .36, 1),
+              background-color .28s cubic-bezier(.22, 1, .36, 1);
 }
+
+/* Keep section headings visible beneath the fixed top bar when the cue jumps. */
+[data-scroll-guide] { scroll-margin-top: 4.5rem; }
+
+/* The pinned workbench animation starts at the viewport edge; keep this target
+   flush so the guide doesn't stop before ScrollTrigger can enter the panel. */
+.addon-lab[data-scroll-guide] { scroll-margin-top: 0; }
 
 .scroll-guide:hover {
-  border-color: rgba(45, 45, 43, .28);
-  background: rgba(250, 249, 245, .97);
   transform: translateY(-2px);
+  background: #fbfaf7;
+  box-shadow: 0 12px 32px rgba(31, 27, 22, .18);
 }
 
+.scroll-guide:active { transform: translateY(0) scale(.985); }
+
 .scroll-guide:focus-visible {
-  outline: 2px solid #353430;
+  outline: 2px solid #37342f;
   outline-offset: 3px;
 }
 
 .scroll-guide svg {
-  flex: 0 0 13px;
-  width: 13px;
-  height: 10px;
+  display: block;
+  width: 12px;
+  height: 9px;
   fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
+  stroke: #37342f;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
+  animation: scroll-guide-float 2.8s cubic-bezier(.22, 1, .36, 1) infinite;
 }
 
-.scroll-guide svg.is-up { transform: rotate(180deg); }
-.scroll-guide-copy { min-width: 0; display: grid; gap: 3px; text-align: left; }
-.scroll-guide-copy small {
-  color: #77756e;
-  font-size: .49rem;
-  letter-spacing: .14em;
-  line-height: 1;
+.scroll-guide svg.is-up {
+  transform: rotate(180deg);
+  animation-name: scroll-guide-float-up;
 }
-.scroll-guide-copy strong {
+
+.scroll-guide-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.scroll-guide-kicker {
+  color: #69645d;
+  font-size: .52rem;
+  line-height: 1.2;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.scroll-guide-label {
+  display: block;
   overflow: hidden;
-  color: #34332f;
+  color: #37342f;
   font-size: .72rem;
-  font-weight: 600;
-  line-height: 1.15;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes scroll-guide-float {
+  0%, 100% { transform: translateY(-1px); }
+  50% { transform: translateY(2px); }
+}
+
+@keyframes scroll-guide-float-up {
+  0%, 100% { transform: rotate(180deg) translateY(-1px); }
+  50% { transform: rotate(180deg) translateY(2px); }
 }
 
 @media (max-width: 600px) {
-  .scroll-guide { right: 10px; bottom: 12px; min-height: 38px; max-width: min(190px, calc(100vw - 20px)); padding: 6px 9px; }
-  .scroll-guide-copy small { font-size: .45rem; }
-  .scroll-guide-copy strong { font-size: .66rem; }
+  .scroll-guide {
+    right: 12px;
+    bottom: max(14px, calc(env(safe-area-inset-bottom) + 10px));
+    gap: 8px;
+    max-width: min(250px, calc(100vw - 24px));
+    padding: 9px 11px 9px 10px;
+  }
+
+  .scroll-guide-kicker { font-size: .48rem; }
+  .scroll-guide-label { font-size: .65rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-guide { transition: none; }
+  .scroll-guide,
+  .scroll-guide svg { animation: none; transition: none; }
 }

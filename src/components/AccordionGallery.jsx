@@ -29,15 +29,15 @@ const STUDIES = [
   },
   {
     image: asset("ps-valorant.jpg"),
-    label: "Valorant Study · Photoshop",
-    cursor: asset("artworks/cursor-photoshop.svg"),
-    alt: "Digital painting made in Photoshop",
+    label: "Windmill Landscape · Blender + Photoshop",
+    cursor: asset("artworks/cursor-blender.svg"),
+    alt: "A Blender-made windmill scene with a sky hand-painted in Photoshop",
   },
   {
     image: asset("ps-windmill.jpg"),
-    label: "Windmill Landscape · Photoshop",
-    cursor: asset("artworks/cursor-photoshop.svg"),
-    alt: "Environment painting made in Photoshop",
+    label: "Valorant Weapon Study · Blender + Photoshop",
+    cursor: asset("artworks/cursor-blender.svg"),
+    alt: "A Blender 3D weapon study finished as a Photoshop composite",
   },
   {
     image: asset("sky.jpg"),
@@ -82,7 +82,7 @@ const TOOLS = [
 
 export default function AccordionGallery() {
   return (
-    <section className="artwork-section" aria-labelledby="artwork-title">
+    <section className="artwork-section" aria-labelledby="artwork-title" data-scroll-guide="Selected artwork">
       <div className="artwork-inner">
         <header className="artwork-heading reveal">
           <div>

@@ -15,6 +15,8 @@ const CHAPTERS = [
       { src: asset("art/donut-render.webp"), title: "Sweet Stack",     tag: "Product · Food render",     size: "wide" },
       { src: asset("art/beach.webp"),        title: "Painted Coast",   tag: "Painterly shader",          size: "tall" },
       { src: asset("sky.jpg"),               title: "Power Line Scene", tag: "Blender 3D · Photoshop-painted sky", size: "tall" },
+      { src: asset("ps-valorant.jpg"),        title: "Windmill Landscape", tag: "Blender 3D · Photoshop-painted sky", size: "wide" },
+      { src: asset("ps-windmill.jpg"),        title: "Valorant Weapon Study", tag: "Blender 3D · Photoshop composite", size: "wide" },
       { src: asset("art/gun.webp"),          title: "Plasma Blaster",  tag: "Hard-surface · Emission",   size: "wide" },
     ],
   },
@@ -60,7 +62,7 @@ export default function ThreeDPage() {
 
   return (
     <main className="category-page">
-      <section className="category-hero category-hero--art">
+      <section className="category-hero category-hero--art" data-scroll-guide="3D portfolio">
         <img className="category-hero-art" src={asset("art/meteor.webp")} alt="" />
         <div className="category-hero-inner">
           <a href="#hero" className="category-back">&larr; Back to Portfolio</a>
@@ -77,7 +79,7 @@ export default function ThreeDPage() {
         </div>
       </section>
 
-      <section className="t3d-stats">
+      <section className="t3d-stats" data-scroll-guide="Portfolio highlights">
         {STATS.map(s => (
           <div key={s.n} className="t3d-stat">
             <span className="t3d-stat-n">{s.n}</span>
@@ -92,7 +94,7 @@ export default function ThreeDPage() {
 
       <BlenderAddonWorkbench />
 
-      <section id="t3d-game-worlds" className="t3d-block t3d-game-worlds" aria-labelledby="t3d-game-worlds-title">
+      <section id="t3d-game-worlds" className="t3d-block t3d-game-worlds" aria-labelledby="t3d-game-worlds-title" data-scroll-guide="Free Drive environments">
         <div className="t3d-block-head">
           <span className="section-label">Blender &rarr; Godot &middot; Mobile game</span>
           <h2 id="t3d-game-worlds-title" className="t3d-h2">Worlds built<br />for the drive</h2>
@@ -115,7 +117,7 @@ export default function ThreeDPage() {
         </div>
       </section>
 
-      <section id="t3d-services" className="t3d-block">
+      <section id="t3d-services" className="t3d-block" data-scroll-guide="3D services">
         <div className="t3d-block-head">
           <span className="section-label">Services</span>
           <h2 className="t3d-h2">What I can<br />build for you</h2>
@@ -132,7 +134,7 @@ export default function ThreeDPage() {
         </div>
       </section>
 
-      <section id="t3d-workflow" className="t3d-block">
+      <section id="t3d-workflow" className="t3d-block" data-scroll-guide="How I work">
         <div className="t3d-block-head">
           <span className="section-label">Workflow</span>
           <h2 className="t3d-h2">From idea<br />to final frame</h2>
@@ -144,7 +146,7 @@ export default function ThreeDPage() {
         </ol>
       </section>
 
-      <section id="t3d-contact" className="t3d-cta">
+      <section id="t3d-contact" className="t3d-cta" data-scroll-guide="Start a project">
         <img className="t3d-cta-bg" src={asset("art/santorini.webp")} alt="" loading="lazy" />
         <div className="t3d-cta-inner">
           <span className="t3d-badge t3d-badge-light"><span className="t3d-badge-dot" />Taking new projects</span>

@@ -1,10 +1,10 @@
 import { asset } from "../lib/asset";
 import "../styles/two-d-showcase.css";
 
-const PHOTOSHOP = [
-  { src: "ps-valorant.jpg", title: "Valorant study", detail: "Digital painting · Photoshop" },
-  { src: "ps-windmill.jpg", title: "Windmill landscape", detail: "Environment painting · Photoshop" },
-  { src: "ps-canvas.png", title: "Canvas study", detail: "Painterly experiment · Photoshop" },
+const IMAGE_STUDIES = [
+  { src: "ps-valorant.jpg", title: "Windmill Landscape", detail: "Blender 3D · Photoshop-painted sky" },
+  { src: "ps-windmill.jpg", title: "Valorant Weapon Study", detail: "Blender 3D · Photoshop composite" },
+  { src: "sky.jpg", title: "Power Line Scene", detail: "Blender 3D · hand-painted Photoshop sky" },
 ];
 
 const ADVENTURE = [
@@ -42,26 +42,26 @@ function ArtworkStrip({ items, className = "" }) {
 export default function CategoryPage() {
   return (
     <main className="two-d-page">
-      <section className="two-d-hero category-hero" aria-labelledby="two-d-title">
+      <section className="two-d-hero category-hero" aria-labelledby="two-d-title" data-scroll-guide="3D art & games">
         <img className="category-hero-art" src={asset("games/pixel-adventure-village.png")} alt="" />
         <div className="category-hero-inner">
           <a href="#hero" className="category-back">&larr; Back to Portfolio</a>
-          <span className="t3d-badge"><span className="t3d-badge-dot" />2D art · game worlds · visual experiments</span>
-          <h1 id="two-d-title" className="category-title">2D /<br />Image making</h1>
-          <p className="t3d-pitch">Digital paintings, hand-built game art and visual ideas in progress — shown with the real work behind them.</p>
+          <span className="t3d-badge"><span className="t3d-badge-dot" />Blender 3D · Photoshop skies · Godot games</span>
+          <h1 id="two-d-title" className="category-title">3D Art<br />&amp; Games</h1>
+          <p className="t3d-pitch">Blender-made scenes with skies I painted in Photoshop, alongside real gameplay captures from my Godot games.</p>
         </div>
       </section>
 
-      <section id="photoshop" className="two-d-section two-d-section--paper" aria-labelledby="photoshop-title">
+      <section id="photoshop" className="two-d-section two-d-section--paper" aria-labelledby="photoshop-title" data-scroll-guide="Blender + Photoshop">
         <header className="two-d-heading">
-          <span className="section-label">01 / Photoshop · selected pieces</span>
-          <h2 id="photoshop-title">Painted, composed,<br />made by hand.</h2>
-          <p>Digital painting and image work made in Photoshop, shown alongside the rest of my 2D practice.</p>
+          <span className="section-label">01 / Blender + Photoshop · selected pieces</span>
+          <h2 id="photoshop-title">Built in 3D.<br />Finished by hand.</h2>
+          <p>These scenes and props are made in Blender. Photoshop adds the hand-painted skies and final image treatment; the captions show which tool shaped each part.</p>
         </header>
-        <ArtworkStrip items={PHOTOSHOP} className="two-d-photoshop-grid" />
+        <ArtworkStrip items={IMAGE_STUDIES} className="two-d-photoshop-grid" />
       </section>
 
-      <section id="pixel-adventure" className="two-d-section two-d-section--night" aria-labelledby="adventure-title">
+      <section id="pixel-adventure" className="two-d-section two-d-section--night" aria-labelledby="adventure-title" data-scroll-guide="Godot adventure">
         <header className="two-d-heading two-d-heading--light">
           <span className="section-label">02 / Godot · in development</span>
           <h2 id="adventure-title">A pixel-art<br />adventure taking shape.</h2>
@@ -70,7 +70,7 @@ export default function CategoryPage() {
         <ArtworkStrip items={ADVENTURE} className="two-d-adventure-grid" />
       </section>
 
-      <section id="wallfall-art" className="two-d-section two-d-section--warm" aria-labelledby="wallfall-art-title">
+      <section id="wallfall-art" className="two-d-section two-d-section--warm" aria-labelledby="wallfall-art-title" data-scroll-guide="Wallfall screenshots">
         <header className="two-d-heading">
           <span className="section-label">03 / Godot + Nakama · online multiplayer</span>
           <h2 id="wallfall-art-title">Wallfall Barricade</h2>

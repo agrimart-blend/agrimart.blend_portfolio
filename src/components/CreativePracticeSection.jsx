@@ -1,6 +1,6 @@
 export default function CreativePracticeSection() {
   return (
-    <section id="creative-practice" className="practice-section" aria-labelledby="practice-title">
+    <section id="creative-practice" className="practice-section" aria-labelledby="practice-title" data-scroll-guide="Creative practice">
       <div className="practice-inner">
         <header className="practice-heading">
           <div className="section-label">Creative practice</div>
@@ -23,12 +23,12 @@ export default function CreativePracticeSection() {
             </a>
           </li>
           <li>
-            <a className="practice-row" href="#shaders">
+            <a className="practice-row" href="#/3d">
               <span className="practice-number">02</span>
               <span className="practice-copy">
                 <span className="practice-kicker">Blender shader tools</span>
                 <strong>Materials made to shape a look</strong>
-                <span>Arcane Shader and Edge Glow, with an interactive preview of each finish.</span>
+                <span>Arcane Shader and Edge Glow, with an interactive Blender workbench and direct Gumroad links.</span>
               </span>
               <span className="practice-arrow" aria-hidden="true">↗</span>
             </a>

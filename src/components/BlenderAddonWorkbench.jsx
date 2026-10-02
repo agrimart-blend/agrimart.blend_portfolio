@@ -102,7 +102,7 @@ export default function BlenderAddonWorkbench() {
   useEffect(() => {
     if (!trackRef.current || !stageRef.current) return undefined;
     const media = gsap.matchMedia();
-    media.add("(min-width: 1001px) and (min-height: 680px) and (prefers-reduced-motion: no-preference)", () => {
+    media.add("(min-width: 1001px) and (min-height: 540px) and (prefers-reduced-motion: no-preference)", () => {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: trackRef.current,
@@ -125,7 +125,7 @@ export default function BlenderAddonWorkbench() {
   }, []);
 
   return (
-    <section id="addon-lab" className="addon-lab" aria-labelledby="addon-lab-title">
+    <section id="addon-lab" className="addon-lab" aria-labelledby="addon-lab-title" data-scroll-guide="Shader workbench">
       <div className="addon-stage-track" ref={trackRef}>
         <div className="addon-stage" ref={stageRef}>
           <div className="addon-lab-head">

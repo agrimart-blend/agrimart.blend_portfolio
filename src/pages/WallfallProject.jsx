@@ -32,7 +32,7 @@ export default function WallfallProject() {
     <main id="wallfall-main" className="wallfall-page">
       <a href="#hero" className="wf-back">&larr; Back to Portfolio</a>
 
-      <section className="wf-hero">
+      <section className="wf-hero" data-scroll-guide="Wallfall Barricade">
         <img src={asset("wallfall/hero.webp")} alt="" className="wf-hero-bg" />
         <div className="wf-hero-gradient" />
         <div className="wf-hero-content">
@@ -56,7 +56,7 @@ export default function WallfallProject() {
         </div>
       </section>
 
-      <section id="wallfall-meta" className="wf-meta wf-reveal">
+      <section id="wallfall-meta" className="wf-meta wf-reveal" data-scroll-guide="Game details">
         {[
           ["My role", "Game & Server Developer"],
           ["Online service", "Nakama · built by me"],
@@ -70,7 +70,7 @@ export default function WallfallProject() {
         ))}
       </section>
 
-      <section id="wallfall-how" className="wf-section">
+      <section id="wallfall-how" className="wf-section" data-scroll-guide="How to play">
         <div className="wf-how wf-reveal">
           <div className="wf-how-copy">
             <span className="wf-eyebrow">The match · 1 minute to understand</span>
@@ -89,7 +89,7 @@ export default function WallfallProject() {
         </div>
       </section>
 
-      <section id="wallfall-online" className="wf-section">
+      <section id="wallfall-online" className="wf-section" data-scroll-guide="Online features">
         <div className="wf-features-head wf-reveal">
           <div>
             <span className="wf-eyebrow">Made for live play</span>
@@ -118,7 +118,7 @@ export default function WallfallProject() {
         </div>
       </section>
 
-      <section id="wallfall-screens" className="wf-section">
+      <section id="wallfall-screens" className="wf-section" data-scroll-guide="Game screenshots">
         <div className="section-label wf-reveal">Screenshots</div>
         <div className="wf-gallery">
           {SHOTS.map((s, i) => (
@@ -129,7 +129,7 @@ export default function WallfallProject() {
         </div>
       </section>
 
-      <section id="wallfall-studio" className="wf-studio wf-reveal">
+      <section id="wallfall-studio" className="wf-studio wf-reveal" data-scroll-guide="Studio details">
         <img src={asset("wallfall/doe-logo.webp")} alt="DOE Studio logo" className="wf-studio-logo" />
         <div className="wf-studio-body">
           <h3 className="wf-studio-title">Made at DOE Studio</h3>
